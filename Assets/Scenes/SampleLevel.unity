@@ -269,9 +269,6 @@ MonoBehaviour:
   movementSpeed: 4
   jumpPower: 7
   activateSlide: 0
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 256
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,7 +372,7 @@ GameObject:
   - component: {fileID: 2134295296}
   m_Layer: 8
   m_Name: SamplePlatform
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
