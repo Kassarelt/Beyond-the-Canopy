@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GameVersion : MonoBehaviour {
 
-	public Text gameVersionText;
+	private Text gameVersionText;
 
 	// Use this for initialization
 	void Start () {

@@ -595,7 +595,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 673667121}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0775d19dac52fae41a7756bcb298d678, type: 3}
+  m_Script: {fileID: 11500000, guid: c1c52c22c2bad154db46acf58230d04c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &673667124
@@ -2013,7 +2013,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Start
+  m_Text: New Game
 --- !u!222 &2104817000
 CanvasRenderer:
   m_ObjectHideFlags: 0
