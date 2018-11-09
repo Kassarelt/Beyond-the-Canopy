@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Platform : StaticObject {
+public abstract class Event : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -11,6 +11,11 @@ public class Platform : StaticObject {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (launchEvent()) {
+
+        }
 	}
+
+    protected abstract bool launchEvent();
+    protected abstract void playEvent();
 }
