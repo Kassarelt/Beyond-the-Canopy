@@ -27,7 +27,7 @@ public class SceneTransitionMenu : MonoBehaviour {
 
 	IEnumerator LoadScene2(){
 		transitionAnim.SetTrigger ("end");
-		yield return new WaitForSeconds (1.5f);
+		yield return new WaitForSeconds (2.5f);
 		SceneManager.LoadScene (sceneName2);
 	}
 
@@ -37,7 +37,7 @@ public class SceneTransitionMenu : MonoBehaviour {
 
 	IEnumerator LoadScene3(){
 		transitionAnim.SetTrigger ("end");
-		yield return new WaitForSeconds (1.5f);
+		yield return new WaitForSeconds (2.5f);
 		SceneManager.LoadScene (sceneName3);
 	}
 
@@ -47,7 +47,7 @@ public class SceneTransitionMenu : MonoBehaviour {
 
 	IEnumerator LoadScene4(){
 		transitionAnim.SetTrigger ("end");
-		yield return new WaitForSeconds (1.5f);
+		yield return new WaitForSeconds (2.5f);
 		SceneManager.LoadScene (sceneName4);
 	}
 }
