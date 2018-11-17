@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Animation/dast.anim.meta
+guid: 4fc276d7d91085d47b1f9ac1de4d27ea
+=======
 guid: ee3aa2e32ed053b49a2f8416f062b4c5
+>>>>>>> f6a5eb6f0bf7a332ea43a1e58aaf65bd49a2b65f:Assets/Animation/dast.anim.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 0

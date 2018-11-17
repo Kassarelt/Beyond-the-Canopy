@@ -16,7 +16,7 @@ TagManager:
   - 
   - Player
   - Platform
-  - 
+  - Spaceship
   - 
   - 
   - 
@@ -53,4 +53,7 @@ TagManager:
     locked: 0
   - name: BeforePlayer
     uniqueID: 280005373
+    locked: 0
+  - name: Spaceship
+    uniqueID: 3430563217
     locked: 0
