@@ -14,29 +14,35 @@ public class Player : MonoBehaviour
     private Animator anim;
     public bool isGrounded = false;
     //public bool doubleJump = false;
-
+    public Transform spaceShip;
     Transform groundCheck;
+
+
+    Vector2 touchedPosition;
+    bool isCollected = false;
+
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         groundCheck = GameObject.Find("groundCheck").transform;
     }
-    
+    private float lerpTime = 5;
+    private float currentLerpTime=0;
     void Update()
     {
-
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, WhatIsGround);
         //doubleJump = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, WhatIsGround);
         float speed = Input.GetAxis("Horizontal") * MaxSpeed;
-       // anim.SetFloat("xSpeed", Mathf.Abs(speed));
-
-        body.velocity = new Vector2(speed, body.velocity.y);
-
+        // anim.SetFloat("xSpeed", Mathf.Abs(speed));
+        if (!isCollected)
+        {
+            body.velocity = new Vector2(speed, body.velocity.y);
+        }
+        
        // anim.SetFloat("ySpeed", body.velocity.y);
-
-
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+       
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded && !isCollected)
         {
             //Debug.Log("Jump " + JumpForce + isGrounded);
 
@@ -52,18 +58,40 @@ public class Player : MonoBehaviour
         //    doubleJump = false;
         //}
 
-       
+        if (isCollected && (transform.position != spaceShip.position))
+        {
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
+            GetComponent<SpriteRenderer>().sortingLayerName = "BeforePlayer";
+            GetComponent<SpriteRenderer>().sortingOrder = 10;
+            currentLerpTime += Time.deltaTime;
+            if (currentLerpTime>=lerpTime)
+            {
+                currentLerpTime = lerpTime;
+                SceneController myScene = new SceneController();
+                myScene.SceneShifter(2);
+            }
+            float Perc = currentLerpTime / lerpTime;
+            transform.position = Vector3.Lerp(touchedPosition,spaceShip.position,Perc);
+        }
         if ((speed > 0 && !facingRight) || (speed < 0 && facingRight))
         {
             Flip();
         }
     }
-
     private void Flip()
     {
         facingRight = !facingRight;
-
-        transform.localScale = new Vector3(-1 * this.transform.localScale.x, 1, 1);
+        transform.localScale = new Vector3(-1 * transform.localScale.x, 1, 1);
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "TheOre")
+        {
+            Destroy(other.gameObject);
+            touchedPosition = transform.position;
+            isCollected = true;
+        }
     }
     //   public float movementSpeed = 4.0f;
     //   public float jumpPower = 7.0f;
