@@ -199,10 +199,10 @@ MonoBehaviour:
   MaxSpeed: 5
   JumpForce: 3000
   groundCheckRadius: 0.05
+  isGrounded: 1
   WhatIsGround:
     serializedVersion: 2
     m_Bits: 512
-  isGrounded: 1
   spaceShip: {fileID: 0}
 --- !u!212 &212732393596693002
 SpriteRenderer:
