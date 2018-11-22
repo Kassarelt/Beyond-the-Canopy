@@ -4,26 +4,41 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    // Varibale for movements (Move + Jump)
     public float MaxSpeed = 5f;
     public float JumpForce = 200f;
-    private float DoubleJumpForce = 200f;
-    public float groundCheckRadius = 0.05f;
-    public LayerMask WhatIsGround;
-    private bool facingRight = false;
-   
-    public bool isGrounded = false;
+    //private float DoubleJumpForce = 200f;
     //public bool doubleJump = false;
-    public Transform spaceShip;
+    public float groundCheckRadius = 0.05f;
 
     private Rigidbody2D body;
+
+
+    // Variable to check if left or right
+    private bool facingRight = false;
+   
+    // Variable to check ground
+    public bool isGrounded = false;
+    public LayerMask WhatIsGround;
+
+    private Transform groundCheck;
+
+    // Variable for Spaceship
+    public Transform spaceShip;
+
+    // Variable of Animators
     private Animator playerAnim;
     private Animator dastAnim;
 
-    Transform groundCheck;
+    // Variable to check if object has been collected and to play on time
+    private Vector2 touchedPosition;
+    private bool isCollected = false;
+    private float lerpTime = 5;
+    private float currentLerpTime = 0;
 
-
-    Vector2 touchedPosition;
-    bool isCollected = false;
+    // Varibale for move Objects
+    private float distanceToBottomOfPlayer = 0.8f;
+    private GameObject lockedObject = null;
 
     void Start()
     {
@@ -33,20 +48,27 @@ public class Player : MonoBehaviour
         dastAnim = GameObject.Find("dast").GetComponent<Animator>();
     }
 
-    private float lerpTime = 5;
-    private float currentLerpTime=0;
+    
 
     void Update()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, WhatIsGround);
         //doubleJump = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, WhatIsGround);
-        float speed = Input.GetAxis("Horizontal") * MaxSpeed;
 
+
+        // Movement
+        float speed = Input.GetAxis("Horizontal") * MaxSpeed;
+        if (lockedObject != null)
+        {
+            speed /= 2;
+        }
         if (!isCollected)
         {
             body.velocity = new Vector2(speed, body.velocity.y);
         }
 
+
+        // ANIMATION
         playerAnim.SetBool("isGrounded", isGrounded);
         dastAnim.SetBool("isGrounded", isGrounded);
 
@@ -61,13 +83,40 @@ public class Player : MonoBehaviour
             dastAnim.SetBool("isWalking", false);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded && !isCollected)
+        // Move OBJECT
+        if (Input.GetKeyDown(KeyCode.F) && isGrounded && !isCollected)
         {
-            //Debug.Log("Jump " + JumpForce + isGrounded);
+            Debug.Log("Down");
+            RaycastHit2D ray;
+            if (facingRight)
+            {
+                ray = Physics2D.Raycast(transform.position, Vector2.right);
+            }
+            else
+            {
+                ray = Physics2D.Raycast(transform.position, Vector2.left);
+            }
+            if (ray.collider != null && ray.collider.tag == "movableObject" && ray.distance < distanceToBottomOfPlayer)
+            {
+                lockedObject = ray.collider.gameObject;
+                lockedObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+            }
+        }
+        if (Input.GetKeyUp(KeyCode.F) && isGrounded && !isCollected)
+        {
+            lockedObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            lockedObject = null;
+        }
+        if (!isCollected && lockedObject != null)
+        {
+            lockedObject.GetComponent<Rigidbody2D>().velocity = new Vector2(speed, lockedObject.GetComponent<Rigidbody2D>().velocity.y);
+        }
 
 
+        // JUMP
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded && !isCollected && lockedObject == null)
+        {
             body.AddForce(new Vector2(0, JumpForce));
-           // anim.SetTrigger("Jump");
            // doubleJump = true;
         }
         //else if (Input.GetButtonDown("Jump") && doubleJump)
@@ -77,6 +126,7 @@ public class Player : MonoBehaviour
         //    doubleJump = false;
         //}
 
+        // Code end of level (play small animation
         if (isCollected && (transform.position != spaceShip.position))
         {
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
@@ -93,16 +143,21 @@ public class Player : MonoBehaviour
             float Perc = currentLerpTime / lerpTime;
             transform.position = Vector3.Lerp(touchedPosition,spaceShip.position,Perc);
         }
+
+        // Flip the player when require
         if ((speed > 0 && !facingRight) || (speed < 0 && facingRight))
         {
             Flip();
         }
     }
+
+
     private void Flip()
     {
         facingRight = !facingRight;
         transform.localScale = new Vector3(-1 * transform.localScale.x, 1, 1);
     }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "TheOre")
