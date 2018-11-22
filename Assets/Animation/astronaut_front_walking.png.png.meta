@@ -1,11 +1,97 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: 51a7a8c7dc818194ca5a850be4059ad3
-=======
-guid: 4a6bf08f090bd4741a8f0f18124e1869
->>>>>>> f6a5eb6f0bf7a332ea43a1e58aaf65bd49a2b65f
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: astronaut_front_walking.png_0
+    21300002: astronaut_front_walking.png_1
+    21300004: astronaut_front_walking.png_2
+    21300006: astronaut_front_walking.png_3
+    21300008: astronaut_front_walking.png_4
+    21300010: astronaut_front_walking.png_5
+    21300012: astronaut_front_walking.png_6
+    21300014: astronaut_front_walking.png_7
+    21300016: astronaut_front_walking.png_8
+    21300018: astronaut_front_walking.png_9
+    21300020: astronaut_front_walking.png_10
+    21300022: astronaut_front_walking.png_11
+    21300024: astronaut_front_walking.png_12
+    21300026: astronaut_front_walking.png_13
+    21300028: astronaut_front_walking.png_14
+    21300030: astronaut_front_walking.png_15
+    21300032: astronaut_front_walking.png_16
+    21300034: astronaut_front_walking.png_17
+    21300036: astronaut_front_walking.png_18
+    21300038: astronaut_front_walking.png_19
+    21300040: astronaut_front_walking.png_20
+    21300042: astronaut_front_walking.png_21
+    21300044: astronaut_front_walking.png_22
+    21300046: astronaut_front_walking.png_23
+    21300048: astronaut_front_walking.png_24
+    21300050: astronaut_front_walking.png_25
+    21300052: astronaut_front_walking.png_26
+    21300054: astronaut_front_walking.png_27
+    21300056: astronaut_front_walking.png_28
+    21300058: astronaut_front_walking.png_29
+    21300060: astronaut_front_walking.png_30
+    21300062: astronaut_front_walking.png_31
+    21300064: astronaut_front_walking.png_32
+    21300066: astronaut_front_walking.png_33
+    21300068: astronaut_front_walking.png_34
+    21300070: astronaut_front_walking.png_35
+    21300072: astronaut_front_walking.png_36
+    21300074: astronaut_front_walking.png_37
+    21300076: astronaut_front_walking.png_38
+    21300078: astronaut_front_walking.png_39
+    21300080: astronaut_front_walking.png_40
+    21300082: astronaut_front_walking.png_41
+    21300084: astronaut_front_walking.png_42
+    21300086: astronaut_front_walking.png_43
+    21300088: astronaut_front_walking.png_44
+    21300090: astronaut_front_walking.png_45
+    21300092: astronaut_front_walking.png_46
+    21300094: astronaut_front_walking.png_47
+    21300096: astronaut_front_walking.png_48
+    21300098: astronaut_front_walking.png_49
+    21300100: astronaut_front_walking.png_50
+    21300102: astronaut_front_walking.png_51
+    21300104: astronaut_front_walking.png_52
+    21300106: astronaut_front_walking.png_53
+    21300108: astronaut_front_walking.png_54
+    21300110: astronaut_front_walking.png_55
+    21300112: astronaut_front_walking.png_56
+    21300114: astronaut_front_walking.png_57
+    21300116: astronaut_front_walking.png_58
+    21300118: astronaut_front_walking.png_59
+    21300120: astronaut_front_walking.png_60
+    21300122: astronaut_front_walking.png_61
+    21300124: astronaut_front_walking.png_62
+    21300126: astronaut_front_walking.png_63
+    21300128: astronaut_front_walking.png_64
+    21300130: astronaut_front_walking.png_65
+    21300132: astronaut_front_walking.png_66
+    21300134: astronaut_front_walking.png_67
+    21300136: astronaut_front_walking.png_68
+    21300138: astronaut_front_walking.png_69
+    21300140: astronaut_front_walking.png_70
+    21300142: astronaut_front_walking.png_71
+    21300144: astronaut_front_walking.png_72
+    21300146: astronaut_front_walking.png_73
+    21300148: astronaut_front_walking.png_74
+    21300150: astronaut_front_walking.png_75
+    21300152: astronaut_front_walking.png_76
+    21300154: astronaut_front_walking.png_77
+    21300156: astronaut_front_walking.png_78
+    21300158: astronaut_front_walking.png_79
+    21300160: astronaut_front_walking.png_80
+    21300162: astronaut_front_walking.png_81
+    21300164: astronaut_front_walking.png_82
+    21300166: astronaut_front_walking.png_83
+    21300168: astronaut_front_walking.png_84
+    21300170: astronaut_front_walking.png_85
+    21300172: astronaut_front_walking.png_86
+    21300174: astronaut_front_walking.png_87
+    21300176: astronaut_front_walking.png_88
+    21300178: astronaut_front_walking.png_89
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -40,16 +126,16 @@ TextureImporter:
     mipBias: -100
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 500
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -73,17 +159,1824 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_0
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 3870
+        width: 486
+        height: 444
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f63ceda7b2475f41b37600e237ea823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_1
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 3876
+        width: 486
+        height: 442
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02f945b2189e31a45a90f8aa606cd52c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_2
+      rect:
+        serializedVersion: 2
+        x: 1168
+        y: 3879
+        width: 455
+        height: 442
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e58c4cd5207d1744192421e52fc16b99
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_3
+      rect:
+        serializedVersion: 2
+        x: 1748
+        y: 3879
+        width: 409
+        height: 445
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8a05c6f03ee02249b6daa158b0b9974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_4
+      rect:
+        serializedVersion: 2
+        x: 2328
+        y: 3879
+        width: 361
+        height: 445
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07d247df15f91a4418c2d84ba7470f3a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_5
+      rect:
+        serializedVersion: 2
+        x: 2892
+        y: 3879
+        width: 338
+        height: 448
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f462b20fe86a4c842ab3f8953379c7e7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_6
+      rect:
+        serializedVersion: 2
+        x: 3424
+        y: 3883
+        width: 367
+        height: 441
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 131e6fed924e0db4eaad7232b379b814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_7
+      rect:
+        serializedVersion: 2
+        x: 3933
+        y: 3883
+        width: 432
+        height: 438
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cc34b4d79736ba40ac3866c40e03255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_8
+      rect:
+        serializedVersion: 2
+        x: 4455
+        y: 3876
+        width: 477
+        height: 442
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e03e604ab3a35643aaa9efa393b70e0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_9
+      rect:
+        serializedVersion: 2
+        x: 4994
+        y: 3873
+        width: 492
+        height: 442
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10d4ec34282db4245b17c79c69e2fdf6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_10
+      rect:
+        serializedVersion: 2
+        x: 5545
+        y: 3870
+        width: 489
+        height: 444
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c20cd7705a20ab4c9ec260a002c1e8e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_11
+      rect:
+        serializedVersion: 2
+        x: 6096
+        y: 3873
+        width: 489
+        height: 442
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a588f3b7954616a4484e1ce6dec4fedf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_12
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 3327
+        width: 477
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33fd2d81dee98db4299b0b0d41b9bbb9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_13
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 3331
+        width: 432
+        height: 442
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f168bd415ebec6b40a29d0307c544d89
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_14
+      rect:
+        serializedVersion: 2
+        x: 1223
+        y: 3328
+        width: 367
+        height: 448
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ceaa13bb0645ea4da63348012d6e8e6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_15
+      rect:
+        serializedVersion: 2
+        x: 1793
+        y: 3328
+        width: 336
+        height: 448
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d16320d4207d9ef4a99175be3816ec1b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_16
+      rect:
+        serializedVersion: 2
+        x: 2325
+        y: 3328
+        width: 367
+        height: 448
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce061b36de0568d4394cb9e9e086e704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_17
+      rect:
+        serializedVersion: 2
+        x: 2834
+        y: 3331
+        width: 432
+        height: 442
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ea13840eda763e4aa918db34ac5b3c1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_18
+      rect:
+        serializedVersion: 2
+        x: 3353
+        y: 3327
+        width: 477
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60fd2ccf106f5ea4b89ef3233bd0acae
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_19
+      rect:
+        serializedVersion: 2
+        x: 3895
+        y: 3322
+        width: 489
+        height: 441
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8428f38c8fa081b438c31d438ad3ff97
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_20
+      rect:
+        serializedVersion: 2
+        x: 4446
+        y: 3319
+        width: 489
+        height: 444
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36fc470c46b57db4b9b78c887063aecb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_21
+      rect:
+        serializedVersion: 2
+        x: 4994
+        y: 3322
+        width: 492
+        height: 441
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12dbf2ba59e944445851573ea2c048e4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_22
+      rect:
+        serializedVersion: 2
+        x: 5554
+        y: 3327
+        width: 477
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a159582f88c8f144b4b7c9080c11b5f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_23
+      rect:
+        serializedVersion: 2
+        x: 6134
+        y: 3331
+        width: 432
+        height: 442
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f8498867a37ffe45ad1cd2d1c9ddc4c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_24
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 2780
+        width: 367
+        height: 445
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b269fa8b590b1c049b056a604c5f2b98
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_25
+      rect:
+        serializedVersion: 2
+        x: 694
+        y: 2777
+        width: 336
+        height: 448
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc03d9179b1decf4097118ce06064e6e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_26
+      rect:
+        serializedVersion: 2
+        x: 1223
+        y: 2780
+        width: 367
+        height: 445
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 682e95a777b0a5d4f83cf6637e54955b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_27
+      rect:
+        serializedVersion: 2
+        x: 1733
+        y: 2782
+        width: 431
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac2d9341ea641904191075f43cb8e9bb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_28
+      rect:
+        serializedVersion: 2
+        x: 2254
+        y: 2777
+        width: 477
+        height: 442
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01e38249eda2b4d4889fbd2c04295c5d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_29
+      rect:
+        serializedVersion: 2
+        x: 2796
+        y: 2771
+        width: 489
+        height: 444
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36189fd1ae97042488486046543679c7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_30
+      rect:
+        serializedVersion: 2
+        x: 3347
+        y: 2771
+        width: 486
+        height: 441
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01d67e4d4be7036448a5914a8c052b0f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_31
+      rect:
+        serializedVersion: 2
+        x: 3895
+        y: 2771
+        width: 489
+        height: 444
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab2750624e943b641b8bba34eb418f88
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_32
+      rect:
+        serializedVersion: 2
+        x: 4455
+        y: 2777
+        width: 477
+        height: 442
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f66898f5388a144c94277e5141047bd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_33
+      rect:
+        serializedVersion: 2
+        x: 5033
+        y: 2782
+        width: 431
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19500c08916d4e142978ef77dc36373b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_34
+      rect:
+        serializedVersion: 2
+        x: 5625
+        y: 2780
+        width: 367
+        height: 445
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3e98ad76792be145b690f3db3720a21
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_35
+      rect:
+        serializedVersion: 2
+        x: 6192
+        y: 2777
+        width: 338
+        height: 448
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 688475f6eaf4a7248bc00c6edf0c0ba0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_36
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 2229
+        width: 367
+        height: 445
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2990e122a2592a24d8dbb6af27629650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_37
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 2232
+        width: 432
+        height: 439
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5df30a3df82d0444b8f817fab7fa9a0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_38
+      rect:
+        serializedVersion: 2
+        x: 1155
+        y: 2226
+        width: 477
+        height: 441
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2264a22dcad0224abc0f89a0e1b2fb1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_39
+      rect:
+        serializedVersion: 2
+        x: 1694
+        y: 2223
+        width: 492
+        height: 441
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc638d29cecac3d4aba0eb3f11d4524e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_40
+      rect:
+        serializedVersion: 2
+        x: 2245
+        y: 2219
+        width: 489
+        height: 445
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 585b31ca2a4e96c40a7f941b0ad95a50
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_41
+      rect:
+        serializedVersion: 2
+        x: 2796
+        y: 2223
+        width: 489
+        height: 441
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: caedde76ffe8b6946babaae8b7f3faa7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_42
+      rect:
+        serializedVersion: 2
+        x: 3353
+        y: 2226
+        width: 477
+        height: 441
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20464dab06257d04bba899e3a1dd0727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_43
+      rect:
+        serializedVersion: 2
+        x: 3933
+        y: 2232
+        width: 432
+        height: 439
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0060d86df5641b42ae0a90497a379b5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_44
+      rect:
+        serializedVersion: 2
+        x: 4523
+        y: 2229
+        width: 367
+        height: 445
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03551a0e52fb36d4a930af8838083bb1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_45
+      rect:
+        serializedVersion: 2
+        x: 5093
+        y: 2229
+        width: 336
+        height: 448
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c0ae2f86a7383445adecaa1c95997a8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_46
+      rect:
+        serializedVersion: 2
+        x: 5625
+        y: 2229
+        width: 367
+        height: 445
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d48c756d69c7a3841a467840231a467b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_47
+      rect:
+        serializedVersion: 2
+        x: 6134
+        y: 2232
+        width: 432
+        height: 439
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 758f0fc781946da44af0b1ef39969060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_48
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 1678
+        width: 477
+        height: 441
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8547295b2acd6a041989b0f12bd684fd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_49
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 1671
+        width: 489
+        height: 445
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fbfea229dde5d54792e728b7f2198a3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_50
+      rect:
+        serializedVersion: 2
+        x: 1146
+        y: 1671
+        width: 489
+        height: 442
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84a1f98c009f73d48ab4c075ca6300a4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_51
+      rect:
+        serializedVersion: 2
+        x: 1694
+        y: 1671
+        width: 492
+        height: 445
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 672f133eff1dbcc4b91a1b5ee022c18d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_52
+      rect:
+        serializedVersion: 2
+        x: 2254
+        y: 1678
+        width: 477
+        height: 441
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51caad0ed6aa85643b2a73475f3821af
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_53
+      rect:
+        serializedVersion: 2
+        x: 2834
+        y: 1681
+        width: 432
+        height: 442
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4eb5e51bfeffe04cb38c973013eb9a7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_54
+      rect:
+        serializedVersion: 2
+        x: 3424
+        y: 1678
+        width: 367
+        height: 448
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 554bc029dc15f4840ad2c102f2fceb6c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_55
+      rect:
+        serializedVersion: 2
+        x: 3994
+        y: 1678
+        width: 336
+        height: 448
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 697e255a401b54e49b511df9e1417f00
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_56
+      rect:
+        serializedVersion: 2
+        x: 4523
+        y: 1678
+        width: 367
+        height: 448
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8de80c7929bb8f4181452669cda9edc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_57
+      rect:
+        serializedVersion: 2
+        x: 5033
+        y: 1681
+        width: 431
+        height: 442
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd14e0d07a227ff47bea1515d4772c72
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_58
+      rect:
+        serializedVersion: 2
+        x: 5554
+        y: 1678
+        width: 477
+        height: 441
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 712e16fb6094d0740afceb01d204f729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_59
+      rect:
+        serializedVersion: 2
+        x: 6096
+        y: 1671
+        width: 489
+        height: 445
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40387bbd501c83c43a0273731652e043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_60
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 1120
+        width: 486
+        height: 442
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97c9aa46b08b35c49b4d0353344ce837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_61
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 1123
+        width: 489
+        height: 442
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9aa33f58b716b354ebe79cc7f3ecff6b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_62
+      rect:
+        serializedVersion: 2
+        x: 1155
+        y: 1127
+        width: 477
+        height: 441
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d37d4ad1f9e09184186b5fe007bfde00
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_63
+      rect:
+        serializedVersion: 2
+        x: 1733
+        y: 1133
+        width: 431
+        height: 438
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 381d936181b050f4384969004f7e4489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_64
+      rect:
+        serializedVersion: 2
+        x: 2325
+        y: 1130
+        width: 367
+        height: 445
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f16cb55c6063af4abc7e3343f660c33
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_65
+      rect:
+        serializedVersion: 2
+        x: 2892
+        y: 1127
+        width: 338
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a916abf6ecacfa64fa0939b29db25c84
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_66
+      rect:
+        serializedVersion: 2
+        x: 3424
+        y: 1130
+        width: 367
+        height: 445
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43c9cd31c0cf71c41bac2442412902a8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_67
+      rect:
+        serializedVersion: 2
+        x: 3933
+        y: 1133
+        width: 432
+        height: 438
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50dea93c16c21c044a0dfbc5fa4992fd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_68
+      rect:
+        serializedVersion: 2
+        x: 4455
+        y: 1127
+        width: 477
+        height: 441
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d77ff6245813c5648a180b5dd29e398c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_69
+      rect:
+        serializedVersion: 2
+        x: 4994
+        y: 1123
+        width: 492
+        height: 442
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c0621cfc00d2544f9d41f75805895d4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_70
+      rect:
+        serializedVersion: 2
+        x: 5545
+        y: 1120
+        width: 489
+        height: 442
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed10a7e74183a244982afbeb1ddf53a6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_71
+      rect:
+        serializedVersion: 2
+        x: 6096
+        y: 1123
+        width: 489
+        height: 442
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eac8f6397150f5d48ba480e4c5fe875c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_72
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 576
+        width: 477
+        height: 441
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 082eaf0128e2c874bb1d893610707765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_73
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 582
+        width: 432
+        height: 441
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 653f9a0f5e949f540ba2cf5cc8ed2521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_74
+      rect:
+        serializedVersion: 2
+        x: 1223
+        y: 579
+        width: 367
+        height: 447
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b861997ccfc63c842b0ac70082467925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_75
+      rect:
+        serializedVersion: 2
+        x: 1793
+        y: 579
+        width: 336
+        height: 448
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfbc8813b57821845af92316d4ed2c30
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_76
+      rect:
+        serializedVersion: 2
+        x: 2325
+        y: 579
+        width: 367
+        height: 447
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b07a62a55b87dc4ba03a9fb706f55e0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_77
+      rect:
+        serializedVersion: 2
+        x: 2834
+        y: 582
+        width: 432
+        height: 441
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cc29d129c6ce1942ae1510c805fb276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_78
+      rect:
+        serializedVersion: 2
+        x: 3353
+        y: 576
+        width: 477
+        height: 441
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c7b67e298ad5e94e8004b921ba3683c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_79
+      rect:
+        serializedVersion: 2
+        x: 3895
+        y: 572
+        width: 489
+        height: 442
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e725975df8f67924583d68aa90d9018e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_80
+      rect:
+        serializedVersion: 2
+        x: 4446
+        y: 569
+        width: 489
+        height: 445
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08c948db6d7765d438a35e174cfe4319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_81
+      rect:
+        serializedVersion: 2
+        x: 4997
+        y: 569
+        width: 486
+        height: 445
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7e00c1ce93e2e74cb0d2eb7142ffd6d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_82
+      rect:
+        serializedVersion: 2
+        x: 5545
+        y: 569
+        width: 489
+        height: 445
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78c49ed358599e44d85bd28a8c303568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_83
+      rect:
+        serializedVersion: 2
+        x: 6096
+        y: 569
+        width: 489
+        height: 445
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c2130e07d4751048903615c8de526bf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_84
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 21
+        width: 486
+        height: 442
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16c986ddeb54b0b4187be100e4dbe4cc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_85
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 21
+        width: 489
+        height: 442
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 862736948b500564da1f8d4a4a2ba447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_86
+      rect:
+        serializedVersion: 2
+        x: 1146
+        y: 21
+        width: 489
+        height: 442
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29e26160fc97edf479c1e90f45ad1fb7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_87
+      rect:
+        serializedVersion: 2
+        x: 1697
+        y: 21
+        width: 486
+        height: 442
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a009a27eb5e97343ab4f60314b04e85
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_88
+      rect:
+        serializedVersion: 2
+        x: 2245
+        y: 24
+        width: 489
+        height: 439
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd396e5a93a751b4bb8343de1903d41c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: astronaut_front_walking.png_89
+      rect:
+        serializedVersion: 2
+        x: 2796
+        y: 27
+        width: 489
+        height: 436
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d8acf883f3684c4599de5ad5a4156ce
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-<<<<<<< HEAD
-    spriteID: 195ba65bb4b65654cbd6504445613f61
-=======
-    spriteID: 9e403ecde2390f74186bd88cc9846a74
->>>>>>> f6a5eb6f0bf7a332ea43a1e58aaf65bd49a2b65f
+    spriteID: 971e83551c12c004ba342fa7658a5bee
     vertices: []
     indices: 
     edges: []
