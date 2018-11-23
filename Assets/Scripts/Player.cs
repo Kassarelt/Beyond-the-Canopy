@@ -13,7 +13,6 @@ public class Player : MonoBehaviour
 
     private Rigidbody2D body;
 
-
     // Variable to check if left or right
     private bool facingRight = false;
    
@@ -32,7 +31,7 @@ public class Player : MonoBehaviour
 
     // Variable to check if object has been collected and to play on time
     private Vector2 touchedPosition;
-    private bool isCollected = false;
+    public bool isCollected = false;
     private float lerpTime = 5;
     private float currentLerpTime = 0;
 
@@ -48,14 +47,10 @@ public class Player : MonoBehaviour
         dastAnim = GameObject.Find("dast").GetComponent<Animator>();
     }
 
-    
-
     void Update()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, WhatIsGround);
         //doubleJump = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, WhatIsGround);
-
-
         // Movement
         float speed = Input.GetAxis("Horizontal") * MaxSpeed;
         if (lockedObject != null)
@@ -150,8 +145,7 @@ public class Player : MonoBehaviour
             Flip();
         }
     }
-
-
+    
     private void Flip()
     {
         facingRight = !facingRight;
@@ -160,11 +154,19 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        //When the player grab the ore
         if (other.gameObject.tag == "TheOre")
         {
             Destroy(other.gameObject);
             touchedPosition = transform.position;
             isCollected = true;
+        }
+        //When the player falls down
+        if (other.gameObject.tag == "DeepGround")
+        {
+            SceneController scene = new SceneController();
+            Destroy(gameObject);
+            scene.SceneShifter(1);
         }
     }
 }
