@@ -8,6 +8,9 @@ TagManager:
   - TheOre
   - movableObject
   - DeepGround
+  - Spike
+  - Trap
+  - Lava
   layers:
   - Default
   - TransparentFX
