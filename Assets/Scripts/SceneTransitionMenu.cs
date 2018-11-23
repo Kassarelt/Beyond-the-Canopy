@@ -50,4 +50,16 @@ public class SceneTransitionMenu : MonoBehaviour {
 		yield return new WaitForSeconds (2.5f);
 		SceneManager.LoadScene (sceneName4);
 	}
+
+    public void Reload()
+    {
+        StartCoroutine(ReloadScene());
+    }
+
+    IEnumerator ReloadScene()
+    {
+        transitionAnim.SetTrigger("end");
+        yield return new WaitForSeconds(2.5f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 }
