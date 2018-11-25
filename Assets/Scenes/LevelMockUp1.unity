@@ -3003,7 +3003,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1054b28853582b449e079073980b5a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionAnim: {fileID: 0}
+  transitionAnim: {fileID: 38686119}
   sceneName1: Menu
   sceneName2: 
   sceneName3: 
