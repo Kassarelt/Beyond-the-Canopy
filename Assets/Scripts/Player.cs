@@ -92,7 +92,6 @@ public class Player : MonoBehaviour
         // Move OBJECT
         if (Input.GetKeyDown(KeyCode.F) && isGrounded /*&& !isCollected*/)
         {
-            Debug.Log("Down");
             RaycastHit2D ray;
             if (facingRight)
             {
@@ -108,7 +107,7 @@ public class Player : MonoBehaviour
                 lockedObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
             }
         }
-        if (Input.GetKeyUp(KeyCode.F) && isGrounded /*&& !isCollected*/)
+        if (Input.GetKeyUp(KeyCode.F) && lockedObject != null && isGrounded /*&& !isCollected*/)
         {
             lockedObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
             lockedObject = null;
@@ -177,6 +176,23 @@ public class Player : MonoBehaviour
                 // TODO LOAD SCENE END WHEN READY
                 // SceneManager.LoadScene("Menu");
             }
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "movableObject")
+        {
+            other.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "movableObject")
+        {
+            lockedObject = null;
+            other.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         }
     }
 }
