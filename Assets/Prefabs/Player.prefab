@@ -83,7 +83,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1412885869478358}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.26, y: -3.4, z: 0}
+  m_LocalPosition: {x: -0.102, y: 1.623, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4520846899776784}
@@ -204,6 +204,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   spaceShip: {fileID: 0}
+  itemUI: {fileID: 0}
+  maxItems: 0
 --- !u!212 &212732393596693002
 SpriteRenderer:
   m_ObjectHideFlags: 1

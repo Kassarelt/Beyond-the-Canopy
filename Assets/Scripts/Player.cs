@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -12,6 +14,7 @@ public class Player : MonoBehaviour
     public float groundCheckRadius = 0.05f;
 
     private Rigidbody2D body;
+
 
     // Variable to check if left or right
     private bool facingRight = false;
@@ -30,14 +33,15 @@ public class Player : MonoBehaviour
     private Animator dastAnim;
 
     // Variable to check if object has been collected and to play on time
-    private Vector2 touchedPosition;
-    public bool isCollected = false;
-    private float lerpTime = 5;
-    private float currentLerpTime = 0;
+    public GameObject itemUI;
+    public int maxItems;
+    private int countItems = 0;
+    
 
     // Varibale for move Objects
     private float distanceToBottomOfPlayer = 0.8f;
     private GameObject lockedObject = null;
+
 
     void Start()
     {
@@ -45,22 +49,29 @@ public class Player : MonoBehaviour
         playerAnim = GetComponent<Animator>();
         groundCheck = GameObject.Find("groundCheck").transform;
         dastAnim = GameObject.Find("dast").GetComponent<Animator>();
+
+        itemUI.GetComponent<Text>().text = countItems + "/" + maxItems;
+        
     }
+
+    
 
     void Update()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, WhatIsGround);
         //doubleJump = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, WhatIsGround);
+
+
         // Movement
         float speed = Input.GetAxis("Horizontal") * MaxSpeed;
         if (lockedObject != null)
         {
             speed /= 2;
         }
-        if (!isCollected)
-        {
+        //if (!isCollected)
+        //{
             body.velocity = new Vector2(speed, body.velocity.y);
-        }
+        //}
 
 
         // ANIMATION
@@ -79,7 +90,7 @@ public class Player : MonoBehaviour
         }
 
         // Move OBJECT
-        if (Input.GetKeyDown(KeyCode.F) && isGrounded && !isCollected)
+        if (Input.GetKeyDown(KeyCode.F) && isGrounded /*&& !isCollected*/)
         {
             Debug.Log("Down");
             RaycastHit2D ray;
@@ -97,19 +108,19 @@ public class Player : MonoBehaviour
                 lockedObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
             }
         }
-        if (Input.GetKeyUp(KeyCode.F) && isGrounded && !isCollected)
+        if (Input.GetKeyUp(KeyCode.F) && isGrounded /*&& !isCollected*/)
         {
             lockedObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
             lockedObject = null;
         }
-        if (!isCollected && lockedObject != null)
+        if (/*!isCollected &&*/ lockedObject != null)
         {
             lockedObject.GetComponent<Rigidbody2D>().velocity = new Vector2(speed, lockedObject.GetComponent<Rigidbody2D>().velocity.y);
         }
 
 
         // JUMP
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded && !isCollected && lockedObject == null)
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded && /*!isCollected &&*/ lockedObject == null)
         {
             body.AddForce(new Vector2(0, JumpForce));
            // doubleJump = true;
@@ -122,7 +133,7 @@ public class Player : MonoBehaviour
         //}
 
         // Code end of level (play small animation
-        if (isCollected && (transform.position != spaceShip.position))
+        /*if (isCollected && (transform.position != spaceShip.position))
         {
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
             gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
@@ -137,7 +148,7 @@ public class Player : MonoBehaviour
             }
             float Perc = currentLerpTime / lerpTime;
             transform.position = Vector3.Lerp(touchedPosition,spaceShip.position,Perc);
-        }
+        }*/
 
         // Flip the player when require
         if ((speed > 0 && !facingRight) || (speed < 0 && facingRight))
@@ -145,7 +156,8 @@ public class Player : MonoBehaviour
             Flip();
         }
     }
-    
+
+
     private void Flip()
     {
         facingRight = !facingRight;
@@ -154,19 +166,17 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        //When the player grab the ore
         if (other.gameObject.tag == "TheOre")
         {
             Destroy(other.gameObject);
-            touchedPosition = transform.position;
-            isCollected = true;
-        }
-        //When the player falls down
-        if (other.gameObject.tag == "DeepGround")
-        {
-            SceneController scene = new SceneController();
-            Destroy(gameObject);
-            scene.SceneShifter(1);
+            countItems += 1;
+            itemUI.GetComponent<Text>().text = countItems + "/" + maxItems;
+
+            if (countItems == maxItems)
+            {
+                // TODO LOAD SCENE END WHEN READY
+                // SceneManager.LoadScene("Menu");
+            }
         }
     }
 }
