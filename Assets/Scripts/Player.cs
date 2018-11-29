@@ -154,13 +154,14 @@ public class Player : MonoBehaviour
         {
             Flip();
         }
+        Debug.Log(transform.localScale);
     }
 
 
     private void Flip()
     {
         facingRight = !facingRight;
-        transform.localScale = new Vector3(-1 * transform.localScale.x, 1, 1);
+        transform.localScale = new Vector3(-1 * transform.localScale.x, transform.localScale.y, 1);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

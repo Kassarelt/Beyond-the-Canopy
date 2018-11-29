@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 578903144}
   - component: {fileID: 578903143}
   - component: {fileID: 578903142}
+  - component: {fileID: 578903145}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -161,7 +162,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 12.701977
+  orthographic size: 27.917686
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -190,6 +191,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &578903145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 578903141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0fda94c8ed74fa489017a94a725c66c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xMin: -599.4
+  xMax: 143.59
+  yMin: -186.8
+  yMax: 216.2
 --- !u!1 &1200126072
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,7 +216,8 @@ GameObject:
   - component: {fileID: 1200126073}
   - component: {fileID: 1200126075}
   - component: {fileID: 1200126074}
-  m_Layer: 0
+  - component: {fileID: 1200126076}
+  m_Layer: 9
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118238,6 +118255,84 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!19719996 &1200126076
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1200126072}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+--- !u!1001 &1637973640
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4365250779435956, guid: 1da18bcfbc4107948ba112b3121cadd2, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -149.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4365250779435956, guid: 1da18bcfbc4107948ba112b3121cadd2, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 96.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4365250779435956, guid: 1da18bcfbc4107948ba112b3121cadd2, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4365250779435956, guid: 1da18bcfbc4107948ba112b3121cadd2, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4365250779435956, guid: 1da18bcfbc4107948ba112b3121cadd2, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4365250779435956, guid: 1da18bcfbc4107948ba112b3121cadd2, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4365250779435956, guid: 1da18bcfbc4107948ba112b3121cadd2, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4365250779435956, guid: 1da18bcfbc4107948ba112b3121cadd2, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4365250779435956, guid: 1da18bcfbc4107948ba112b3121cadd2, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4365250779435956, guid: 1da18bcfbc4107948ba112b3121cadd2, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114789159753415620, guid: 1da18bcfbc4107948ba112b3121cadd2,
+        type: 2}
+      propertyPath: MaxSpeed
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114789159753415620, guid: 1da18bcfbc4107948ba112b3121cadd2,
+        type: 2}
+      propertyPath: JumpForce
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 50340366176726390, guid: 1da18bcfbc4107948ba112b3121cadd2,
+        type: 2}
+      propertyPath: m_GravityScale
+      value: 1.86
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1da18bcfbc4107948ba112b3121cadd2, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &2020880233
 GameObject:
   m_ObjectHideFlags: 0
