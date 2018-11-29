@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     public float JumpForce = 200f;
     //private float DoubleJumpForce = 200f;
     //public bool doubleJump = false;
-    public float groundCheckRadius = 0.05f;
+    public float groundCheckRadius = 0.1f;
 
     private Rigidbody2D body;
 
@@ -37,11 +37,9 @@ public class Player : MonoBehaviour
     public int maxItems;
     private int countItems = 0;
     
-
     // Varibale for move Objects
     private float distanceToBottomOfPlayer = 0.8f;
     private GameObject lockedObject = null;
-
 
     void Start()
     {
@@ -54,13 +52,11 @@ public class Player : MonoBehaviour
         
     }
 
-    
-
     void Update()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, WhatIsGround);
         //doubleJump = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, WhatIsGround);
-
+        
 
         // Movement
         float speed = Input.GetAxis("Horizontal") * MaxSpeed;
@@ -163,7 +159,7 @@ public class Player : MonoBehaviour
         facingRight = !facingRight;
         transform.localScale = new Vector3(-1 * transform.localScale.x, 1, 1);
     }
-
+    Vector3 vectorPlatform;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "TheOre")
