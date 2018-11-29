@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
     private int countItems = 0;
     
     // Varibale for move Objects
-    private float distanceToBottomOfPlayer = 0.8f;
+    private float distanceToBottomOfPlayer = 7f;
     private GameObject lockedObject = null;
 
     void Start()
