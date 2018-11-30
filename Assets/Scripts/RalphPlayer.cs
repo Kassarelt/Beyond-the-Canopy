@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class Player : MonoBehaviour
+public class RalphPlayer : MonoBehaviour
 {
     // Varibale for movements (Move + Jump)
     public float MaxSpeed = 5f;
@@ -17,20 +17,18 @@ public class Player : MonoBehaviour
 
     //Cluster for particle effect
     public GameObject walkingEffect;
+    public GameObject jumpEffect;
     private Vector2 effectPos;
 
 
     // Variable to check if left or right
     private bool facingRight = false;
-   
+
     // Variable to check ground
     public bool isGrounded = false;
     public LayerMask WhatIsGround;
 
     private Transform groundCheck;
-
-    // Variable for Spaceship
-    public Transform spaceShip;
 
     // Variable of Animators
     private Animator playerAnim;
@@ -40,7 +38,7 @@ public class Player : MonoBehaviour
     public GameObject itemUI;
     public int maxItems;
     private int countItems = 0;
-    
+
     // Varibale for move Objects
     private float distanceToBottomOfPlayer = 7f;
     private GameObject lockedObject = null;
@@ -50,10 +48,9 @@ public class Player : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         playerAnim = GetComponent<Animator>();
         groundCheck = GameObject.Find("groundCheck").transform;
-        dastAnim = GameObject.Find("dast").GetComponent<Animator>();
 
         itemUI.GetComponent<Text>().text = countItems + "/" + maxItems;
-        
+
     }
 
     void Update()
@@ -65,8 +62,13 @@ public class Player : MonoBehaviour
         //walking effect management
         effectPos = new Vector2(transform.position.x, transform.position.y - 3.9f);
         //instantiating the walking effect
-        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.Space)) {
+        if ((Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) && isGrounded)
+        {
             Instantiate(walkingEffect, effectPos, Quaternion.Euler(180, 0, 180));
+        }
+        else if ((Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) && isGrounded)
+        {
+            Instantiate(walkingEffect, effectPos, Quaternion.Euler(0, 0, 0));
         }
 
         // Movement
@@ -77,23 +79,20 @@ public class Player : MonoBehaviour
         }
         //if (!isCollected)
         //{
-            body.velocity = new Vector2(speed, body.velocity.y);
+        body.velocity = new Vector2(speed, body.velocity.y);
         //}
 
 
         // ANIMATION
         playerAnim.SetBool("isGrounded", isGrounded);
-        //dastAnim.SetBool("isGrounded", isGrounded);
 
         if (speed != 0)
         {
             playerAnim.SetBool("isWalking", true);
-            dastAnim.SetBool("isWalking", true);
         }
         else
         {
             playerAnim.SetBool("isWalking", false);
-            dastAnim.SetBool("isWalking", false);
         }
 
         // Move OBJECT
@@ -129,7 +128,11 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded && /*!isCollected &&*/ lockedObject == null)
         {
             body.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
-           // doubleJump = true;
+            // doubleJump = true;
+
+            //jumping effect
+            Instantiate(jumpEffect, effectPos, Quaternion.identity);
+
         }
         //else if (Input.GetButtonDown("Jump") && doubleJump)
         //{
@@ -161,7 +164,6 @@ public class Player : MonoBehaviour
         {
             Flip();
         }
-        Debug.Log(transform.localScale);
     }
 
 
@@ -204,3 +206,4 @@ public class Player : MonoBehaviour
         }
     }
 }
+
