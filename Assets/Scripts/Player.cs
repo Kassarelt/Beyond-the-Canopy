@@ -1,71 +1,195 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
+    // Varibale for movements (Move + Jump)
+    public float MaxSpeed = 5f;
+    public float JumpForce = 200f;
+    //private float DoubleJumpForce = 200f;
+    //public bool doubleJump = false;
+    public float groundCheckRadius = 0.1f;
 
-    public float movementSpeed = 4.0f;
-    public float jumpPower = 7.0f;
-    public bool activateSlide = false;
+    private Rigidbody2D body;
 
-    private bool isOnPlatform = false;
-    private Rigidbody2D myBody;
 
-    // Use this for initialization
-    void Start () {
-        myBody = gameObject.GetComponent<Rigidbody2D>();
+    // Variable to check if left or right
+    private bool facingRight = false;
+   
+    // Variable to check ground
+    public bool isGrounded = false;
+    public LayerMask WhatIsGround;
+
+    private Transform groundCheck;
+
+    // Variable for Spaceship
+    public Transform spaceShip;
+
+    // Variable of Animators
+    private Animator playerAnim;
+    private Animator dastAnim;
+
+    // Variable to check if object has been collected and to play on time
+    public GameObject itemUI;
+    public int maxItems;
+    private int countItems = 0;
+    
+    // Varibale for move Objects
+    private float distanceToBottomOfPlayer = 7f;
+    private GameObject lockedObject = null;
+
+    void Start()
+    {
+        body = GetComponent<Rigidbody2D>();
+        playerAnim = GetComponent<Animator>();
+        groundCheck = GameObject.Find("groundCheck").transform;
+        dastAnim = GameObject.Find("dast").GetComponent<Animator>();
+
+        itemUI.GetComponent<Text>().text = countItems + "/" + maxItems;
+        
     }
-	
-	// Update is called once per frame
-	void Update () {
-        // Go left
-        if (Input.GetKey(KeyCode.LeftArrow))
+
+    void Update()
+    {
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, WhatIsGround);
+        //doubleJump = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, WhatIsGround);
+        
+
+        // Movement
+        float speed = Input.GetAxis("Horizontal") * MaxSpeed;
+        if (lockedObject != null)
         {
-            myBody.velocity = new Vector2(myBody.velocity.x - movementSpeed, myBody.velocity.y);
-            if (myBody.velocity.x < -movementSpeed)
-            {
-                myBody.velocity = new Vector2(-movementSpeed, myBody.velocity.y);
-            }
+            speed /= 2;
         }
-        // Go right
-        else if (Input.GetKey(KeyCode.RightArrow))
+        //if (!isCollected)
+        //{
+            body.velocity = new Vector2(speed, body.velocity.y);
+        //}
+
+
+        // ANIMATION
+        playerAnim.SetBool("isGrounded", isGrounded);
+        dastAnim.SetBool("isGrounded", isGrounded);
+
+        if (speed != 0)
         {
-            myBody.velocity = new Vector2(myBody.velocity.y + movementSpeed, myBody.velocity.y);
-            if (myBody.velocity.x > movementSpeed)
-            {
-                myBody.velocity = new Vector2(movementSpeed, myBody.velocity.y);
-            }
+            playerAnim.SetBool("isWalking", true);
+            dastAnim.SetBool("isWalking", true);
         }
-        // Slide management
-        else if (myBody.velocity.y < 1 && !activateSlide)
+        else
         {
-            myBody.velocity = new Vector2(myBody.velocity.x * 0, myBody.velocity.y);
+            playerAnim.SetBool("isWalking", false);
+            dastAnim.SetBool("isWalking", false);
         }
 
-        //Debug.Log(isOnPlatform);
-        if (Input.GetKey(KeyCode.Space) && isOnPlatform)
+        // Move OBJECT
+        if (Input.GetKeyDown(KeyCode.F) && isGrounded /*&& !isCollected*/)
         {
-            myBody.velocity = new Vector2(myBody.velocity.x, jumpPower);
+            RaycastHit2D ray;
+            if (facingRight)
+            {
+                ray = Physics2D.Raycast(transform.position, Vector2.right);
+            }
+            else
+            {
+                ray = Physics2D.Raycast(transform.position, Vector2.left);
+            }
+            if (ray.collider != null && ray.collider.tag == "movableObject" && ray.distance < distanceToBottomOfPlayer)
+            {
+                lockedObject = ray.collider.gameObject;
+                lockedObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+            }
         }
-       
+        if (Input.GetKeyUp(KeyCode.F) && lockedObject != null && isGrounded /*&& !isCollected*/)
+        {
+            lockedObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            lockedObject = null;
+        }
+        if (/*!isCollected &&*/ lockedObject != null)
+        {
+            lockedObject.GetComponent<Rigidbody2D>().velocity = new Vector2(speed, lockedObject.GetComponent<Rigidbody2D>().velocity.y);
+        }
+
+
+        // JUMP
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded && /*!isCollected &&*/ lockedObject == null)
+        {
+            body.AddForce(new Vector2(0, JumpForce));
+           // doubleJump = true;
+        }
+        //else if (Input.GetButtonDown("Jump") && doubleJump)
+        //{
+        //    body.AddForce(new Vector2(0, DoubleJumpForce));
+        //    anim.SetTrigger("Jump");
+        //    doubleJump = false;
+        //}
+
+        // Code end of level (play small animation
+        /*if (isCollected && (transform.position != spaceShip.position))
+        {
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
+            GetComponent<SpriteRenderer>().sortingLayerName = "BeforePlayer";
+            GetComponent<SpriteRenderer>().sortingOrder = 10;
+            currentLerpTime += Time.deltaTime;
+            if (currentLerpTime>=lerpTime)
+            {
+                currentLerpTime = lerpTime;
+                SceneController myScene = new SceneController();
+                myScene.SceneShifter(2);
+            }
+            float Perc = currentLerpTime / lerpTime;
+            transform.position = Vector3.Lerp(touchedPosition,spaceShip.position,Perc);
+        }*/
+
+        // Flip the player when require
+        if ((speed > 0 && !facingRight) || (speed < 0 && facingRight))
+        {
+            Flip();
+        }
+        Debug.Log(transform.localScale);
+    }
+
+
+    private void Flip()
+    {
+        facingRight = !facingRight;
+        transform.localScale = new Vector3(-1 * transform.localScale.x, transform.localScale.y, 1);
+    }
+    Vector3 vectorPlatform;
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "TheOre")
+        {
+            Destroy(other.gameObject);
+            countItems += 1;
+            itemUI.GetComponent<Text>().text = countItems + "/" + maxItems;
+
+            if (countItems == maxItems)
+            {
+                // TODO LOAD SCENE END WHEN READY
+                // SceneManager.LoadScene("Menu");
+            }
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        
-        if (other.gameObject.tag == "Platform")
+        if (other.gameObject.tag == "movableObject")
         {
-            Debug.Log("test");
-            isOnPlatform = true;
+            other.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         }
     }
 
     private void OnCollisionExit2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Platform")
+        if (other.gameObject.tag == "movableObject")
         {
-            isOnPlatform = false;
+            lockedObject = null;
+            other.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         }
     }
 }
