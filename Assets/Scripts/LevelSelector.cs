@@ -9,6 +9,8 @@ public class LevelSelector : MonoBehaviour {
     public Text bigPlanetName;
     public Text bigPlanetInfo;
     public Text profText;
+    public Text profName;
+    public Text profInformation;
 
     public Button startButton;
 
@@ -18,6 +20,9 @@ public class LevelSelector : MonoBehaviour {
 
     public void Start()
     {
+        profName.text = "Professor Spacestein";
+        profInformation.text = "Age: 64\nSize: 1m65\nWeight: Too Much\nHobbies: eat burritos in front of Star Wars";
+
         Mars();
     }
 
@@ -62,7 +67,7 @@ public class LevelSelector : MonoBehaviour {
         bigPlanetFrame.sprite = bigPlanets[3];
         bigPlanetName.text = "Mars";
         bigPlanetInfo.text = "- Volume:\n   163.18*10^9 km3\n   (0.107 Earth)\n- Daytime:\n   24.6 h\n- Yeartime:\n   686.98d";
-        profText.text = "This is just to test how it looks when the text is very very very very very very very very very very very very very very very very very very very very very long.";
+        profText.text = "Welcome Challenger 42,\n\nIt's on Mars that you will do your first test. Remember, you must proove that you deserve more than others to be the first Human to go out out of Solar System.\n\nYour missions is to collect //OBJECT TO COLLECT// all around the planet.\n\nThe air of Mars isn't breathable, so your time is limited.\n\nAnd in addition, the planet is hot and your suit don't will resist a long time.\n\nThe gravity is three time lower than on earth. Your move will be easier but anyway a big fall could kill you or damaged your suit.\n\nGood Luck Challenger 42.";
     }
 
     public void Jupiter()
