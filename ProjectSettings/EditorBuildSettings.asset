@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LevelMockUp1.unity
     guid: 3555d88fd2b0d284db08cb880373624e
+  - enabled: 1
+    path: Assets/Scenes/RalphsPlatformScene.unity
+    guid: 063c5ccebe521814ea1e31f23412df80
   m_configObjects: {}

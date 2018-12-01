@@ -18,13 +18,7 @@ public class LevelSelector : MonoBehaviour {
 
     public void Start()
     {
-        startButton.interactable = true;
-        sceneManager.newGame = "RalphsPlatformScene";
-
-        bigPlanetFrame.sprite = bigPlanets[3];
-        bigPlanetName.text = "Mars";
-
-        profText.text = "This is just to test how it looks when the text is very very very very very very very very very very very very very very very very very very very very very long.";
+        Mars();
     }
 
     public void Mercury()
@@ -35,7 +29,7 @@ public class LevelSelector : MonoBehaviour {
         bigPlanetFrame.sprite = bigPlanets[0];
         bigPlanetName.text = "Mercury";
 
-        profText.text = "I'm sorry, this level is not yet implemented.";
+        profText.text = "I'm sorry, Mercury level is not yet implemented.";
     }
 
     public void Venus()
@@ -46,7 +40,7 @@ public class LevelSelector : MonoBehaviour {
         bigPlanetFrame.sprite = bigPlanets[1];
         bigPlanetName.text = "Venus";
 
-        profText.text = "I'm sorry, this level is not yet implemented.";
+        profText.text = "I'm sorry, Venus level is not yet implemented.";
     }
 
     public void Earth()
@@ -57,7 +51,7 @@ public class LevelSelector : MonoBehaviour {
         bigPlanetFrame.sprite = bigPlanets[2];
         bigPlanetName.text = "Earth";
 
-        profText.text = "I'm sorry, this level is not yet implemented.";
+        profText.text = "I'm sorry, Earth level is not yet implemented.";
     }
 
     public void Mars()
@@ -67,7 +61,7 @@ public class LevelSelector : MonoBehaviour {
 
         bigPlanetFrame.sprite = bigPlanets[3];
         bigPlanetName.text = "Mars";
-
+        bigPlanetInfo.text = "- Volume:\n   163.18*10^9 km3\n   (0.107 Earth)\n- Daytime:\n   24.6 h\n- Yeartime:\n   686.98d";
         profText.text = "This is just to test how it looks when the text is very very very very very very very very very very very very very very very very very very very very very long.";
     }
 
@@ -79,7 +73,7 @@ public class LevelSelector : MonoBehaviour {
         bigPlanetFrame.sprite = bigPlanets[4];
         bigPlanetName.text = "Jupiter";
 
-        profText.text = "I'm sorry, this level is not yet implemented.";
+        profText.text = "I'm sorry, Jupiter level is not yet implemented.";
     }
 
     public void Saturn()
@@ -90,7 +84,7 @@ public class LevelSelector : MonoBehaviour {
         bigPlanetFrame.sprite = bigPlanets[5];
         bigPlanetName.text = "Saturn";
 
-        profText.text = "I'm sorry, this level is not yet implemented.";
+        profText.text = "I'm sorry, Saturn level is not yet implemented.";
     }
 
     public void Uranus()
@@ -101,7 +95,7 @@ public class LevelSelector : MonoBehaviour {
         bigPlanetFrame.sprite = bigPlanets[6];
         bigPlanetName.text = "Uranus";
 
-        profText.text = "I'm sorry, this level is not yet implemented.";
+        profText.text = "I'm sorry, Uranus level is not yet implemented.";
     }
 
     public void Neptune()
@@ -112,6 +106,6 @@ public class LevelSelector : MonoBehaviour {
         bigPlanetFrame.sprite = bigPlanets[7];
         bigPlanetName.text = "Neptune";
 
-        profText.text = "I'm sorry, this level is not yet implemented.";
+        profText.text = "I'm sorry, Neptune level is not yet implemented.";
     }
 }
