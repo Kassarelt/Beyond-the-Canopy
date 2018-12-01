@@ -26,7 +26,6 @@ public class Player : MonoBehaviour
     // Variable to check ground
     public bool isGrounded = false;
     public LayerMask WhatIsGround;
-
     private Transform groundCheck;
 
     // Variable for Spaceship
@@ -124,7 +123,6 @@ public class Player : MonoBehaviour
             lockedObject.GetComponent<Rigidbody2D>().velocity = new Vector2(speed, lockedObject.GetComponent<Rigidbody2D>().velocity.y);
         }
 
-
         // JUMP
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded && /*!isCollected &&*/ lockedObject == null)
         {
@@ -161,7 +159,6 @@ public class Player : MonoBehaviour
         {
             Flip();
         }
-        Debug.Log(transform.localScale);
     }
 
 
