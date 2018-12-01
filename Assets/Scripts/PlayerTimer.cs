@@ -13,18 +13,39 @@ public class PlayerTimer : MonoBehaviour {
     public float spikeDamage;
     [Range(0, 0.5f)]
     public float lavaDamage;
+
     public SceneTransitionMenu sceneManager;
+
+    private Player playerMoveScript;
+    private bool wasGrounded = true;
+    public float fallDamage;
+    public float velocityFallMax;
+
+
+    // Variable to check ground
+    public bool isGrounded;
+    public float groundCheckRadius = 0.1f;
+    public LayerMask WhatIsGround;
+    private Transform groundCheck;
 
     // Use this for initialization
     void Start () {
-		
-	}
+        playerMoveScript = gameObject.GetComponent<Player>();
+    }
 	
 	// Update is called once per frame
-	void Update () {
+	void LateUpdate () {
+        fallDmg();
         TimeCounter();
+    }
 
-
+    void fallDmg()
+    {
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, WhatIsGround);
+        if (!wasGrounded && isGrounded && gameObject.GetComponent<Rigidbody2D>().velocity.y > velocityFallMax)
+        {
+            timeBar.value -= fallDamage * (gameObject.GetComponent<Rigidbody2D>().velocity.y - velocityFallMax);
+        }
     }
 
     void TimeCounter()
