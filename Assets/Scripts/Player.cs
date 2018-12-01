@@ -15,6 +15,10 @@ public class Player : MonoBehaviour
 
     private Rigidbody2D body;
 
+    //Cluster for particle effect
+    public GameObject walkingEffect;
+    private Vector2 effectPos;
+
 
     // Variable to check if left or right
     private bool facingRight = false;
@@ -22,7 +26,6 @@ public class Player : MonoBehaviour
     // Variable to check ground
     public bool isGrounded = false;
     public LayerMask WhatIsGround;
-
     private Transform groundCheck;
 
     // Variable for Spaceship
@@ -56,7 +59,14 @@ public class Player : MonoBehaviour
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, WhatIsGround);
         //doubleJump = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, WhatIsGround);
-        
+
+
+        //walking effect management
+        effectPos = new Vector2(transform.position.x, transform.position.y - 3.9f);
+        //instantiating the walking effect
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.Space)) {
+            Instantiate(walkingEffect, effectPos, Quaternion.Euler(180, 0, 180));
+        }
 
         // Movement
         float speed = Input.GetAxis("Horizontal") * MaxSpeed;
@@ -72,7 +82,7 @@ public class Player : MonoBehaviour
 
         // ANIMATION
         playerAnim.SetBool("isGrounded", isGrounded);
-        dastAnim.SetBool("isGrounded", isGrounded);
+        //dastAnim.SetBool("isGrounded", isGrounded);
 
         if (speed != 0)
         {
@@ -113,11 +123,10 @@ public class Player : MonoBehaviour
             lockedObject.GetComponent<Rigidbody2D>().velocity = new Vector2(speed, lockedObject.GetComponent<Rigidbody2D>().velocity.y);
         }
 
-
         // JUMP
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded && /*!isCollected &&*/ lockedObject == null)
         {
-            body.AddForce(new Vector2(0, JumpForce));
+            body.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
            // doubleJump = true;
         }
         //else if (Input.GetButtonDown("Jump") && doubleJump)
@@ -150,7 +159,6 @@ public class Player : MonoBehaviour
         {
             Flip();
         }
-        Debug.Log(transform.localScale);
     }
 
 

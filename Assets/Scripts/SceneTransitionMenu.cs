@@ -6,10 +6,10 @@ using UnityEngine.SceneManagement;
 public class SceneTransitionMenu : MonoBehaviour {
 
 	public Animator transitionAnim;
-	public string sceneName1;
-	public string sceneName2;
-	public string sceneName3;
-	public string sceneName4;
+	public string newGame;
+	public string loadGame;
+	public string options;
+	public string menu;
 
 	public void NewGame(){
 		StartCoroutine (LoadScene1());
@@ -18,7 +18,7 @@ public class SceneTransitionMenu : MonoBehaviour {
 	IEnumerator LoadScene1(){
 		transitionAnim.SetTrigger ("end");
 		yield return new WaitForSeconds (2.5f);
-		SceneManager.LoadScene (sceneName1);
+		SceneManager.LoadScene (newGame);
 	}
 
 	public void LoadGame(){
@@ -28,7 +28,7 @@ public class SceneTransitionMenu : MonoBehaviour {
 	IEnumerator LoadScene2(){
 		transitionAnim.SetTrigger ("end");
 		yield return new WaitForSeconds (2.5f);
-		SceneManager.LoadScene (sceneName2);
+		SceneManager.LoadScene (loadGame);
 	}
 
 	public void Options(){
@@ -38,17 +38,17 @@ public class SceneTransitionMenu : MonoBehaviour {
 	IEnumerator LoadScene3(){
 		transitionAnim.SetTrigger ("end");
 		yield return new WaitForSeconds (2.5f);
-		SceneManager.LoadScene (sceneName3);
+		SceneManager.LoadScene (options);
 	}
 
-	public void Quit(){
+	public void Menu(){
 		StartCoroutine (LoadScene4());
 	}
 
 	IEnumerator LoadScene4(){
 		transitionAnim.SetTrigger ("end");
 		yield return new WaitForSeconds (2.5f);
-		SceneManager.LoadScene (sceneName4);
+		SceneManager.LoadScene (menu);
 	}
 
     public void Reload()
