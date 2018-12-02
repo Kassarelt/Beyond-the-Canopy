@@ -45,6 +45,8 @@ public class Player : MonoBehaviour
     private GameObject lockedObject = null;
     public static bool isFpressed = false;
 
+    public float distanceToSides = 7f;
+
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
@@ -165,6 +167,32 @@ public class Player : MonoBehaviour
         if ((speed > 0 && !facingRight) || (speed < 0 && facingRight))
         {
             Flip();
+        }
+
+        if (!isGrounded)
+        {
+            RaycastHit2D ray;
+
+            // Get top of platform
+            Bounds bounds = GetComponent<SpriteRenderer>().bounds;
+
+            Vector2 startRay;
+            if (facingRight)
+            {
+                startRay = new Vector2(bounds.center.x + (bounds.size.x / 2) + 0.1f, bounds.center.y + (bounds.size.y / 2)+0.1f);
+            }
+            else
+            {
+                startRay = new Vector2(bounds.center.x - (bounds.size.x / 2) - 0.1f, bounds.center.y + (bounds.size.y / 2)+0.1f);
+            }
+            ray = Physics2D.Raycast(startRay, new Vector2(0, -bounds.size.y - 0.1f));
+
+            Debug.Log(bounds.size.y);
+            Debug.Log(ray.distance);
+            if (ray.collider != null && ray.distance < bounds.size.y)
+            {
+                body.velocity = new Vector3(0, body.velocity.y, 0);
+            }
         }
     }
     
