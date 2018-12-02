@@ -16082,7 +16082,7 @@ GameObject:
   - component: {fileID: 1200126076}
   m_Layer: 9
   m_Name: Tilemap
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122581,11 +122581,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4365250779435956, guid: 1da18bcfbc4107948ba112b3121cadd2, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -78.5
+      value: 46.4
       objectReference: {fileID: 0}
     - target: {fileID: 4365250779435956, guid: 1da18bcfbc4107948ba112b3121cadd2, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 96.2
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 4365250779435956, guid: 1da18bcfbc4107948ba112b3121cadd2, type: 2}
       propertyPath: m_LocalPosition.z
@@ -122613,11 +122613,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4365250779435956, guid: 1da18bcfbc4107948ba112b3121cadd2, type: 2}
       propertyPath: m_LocalScale.x
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4365250779435956, guid: 1da18bcfbc4107948ba112b3121cadd2, type: 2}
       propertyPath: m_LocalScale.y
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 114789159753415620, guid: 1da18bcfbc4107948ba112b3121cadd2,
         type: 2}
@@ -122627,7 +122627,7 @@ Prefab:
     - target: {fileID: 114789159753415620, guid: 1da18bcfbc4107948ba112b3121cadd2,
         type: 2}
       propertyPath: JumpForce
-      value: 10000
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 50340366176726390, guid: 1da18bcfbc4107948ba112b3121cadd2,
         type: 2}
@@ -122642,6 +122642,42 @@ Prefab:
     - target: {fileID: 4520846899776784, guid: 1da18bcfbc4107948ba112b3121cadd2, type: 2}
       propertyPath: m_LocalPosition.y
       value: -0.422
+      objectReference: {fileID: 0}
+    - target: {fileID: 114789159753415620, guid: 1da18bcfbc4107948ba112b3121cadd2,
+        type: 2}
+      propertyPath: walkingEffect
+      value: 
+      objectReference: {fileID: 1716757622316762, guid: fc4cf54ecffa2514eb3bfc76207dbeef,
+        type: 2}
+    - target: {fileID: 50340366176726390, guid: 1da18bcfbc4107948ba112b3121cadd2,
+        type: 2}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114789159753415620, guid: 1da18bcfbc4107948ba112b3121cadd2,
+        type: 2}
+      propertyPath: distanceToSides
+      value: 3.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 70964159803042790, guid: 1da18bcfbc4107948ba112b3121cadd2,
+        type: 2}
+      propertyPath: m_Offset.y
+      value: 0.011694002
+      objectReference: {fileID: 0}
+    - target: {fileID: 70964159803042790, guid: 1da18bcfbc4107948ba112b3121cadd2,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 0.873388
+      objectReference: {fileID: 0}
+    - target: {fileID: 70964159803042790, guid: 1da18bcfbc4107948ba112b3121cadd2,
+        type: 2}
+      propertyPath: m_Offset.x
+      value: -0.018710328
+      objectReference: {fileID: 0}
+    - target: {fileID: 70964159803042790, guid: 1da18bcfbc4107948ba112b3121cadd2,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 0.38742065
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1da18bcfbc4107948ba112b3121cadd2, type: 2}
