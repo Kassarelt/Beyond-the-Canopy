@@ -14,6 +14,8 @@ public class PlayerTimer : MonoBehaviour {
     [Range(0, 0.5f)]
     public float lavaDamage;
 
+    public Text timerValueIndicator;
+
     public SceneTransitionMenu sceneManager;
 
     private Player playerMoveScript;
@@ -31,6 +33,8 @@ public class PlayerTimer : MonoBehaviour {
     // Use this for initialization
     void Start () {
         playerMoveScript = gameObject.GetComponent<Player>();
+
+        timerValueIndicator.text = timeBar.value.ToString();
     }
 	
 	// Update is called once per frame
@@ -53,6 +57,7 @@ public class PlayerTimer : MonoBehaviour {
         if (timeBar.value >= 0)
         {
             timeBar.value -= (timeSpeed / 10) * Time.deltaTime;
+            timerValueIndicator.text = timeBar.value.ToString();
 
             if (timeBar.value == 0)
             {
@@ -69,10 +74,12 @@ public class PlayerTimer : MonoBehaviour {
         if (collision.gameObject.tag == "Trap")
         {
             timeBar.value -= spikeDamage;
+            timerValueIndicator.text = timeBar.value.ToString();
         }
         if (collision.gameObject.tag == "Lava")
         {
             timeBar.value -= lavaDamage;
+            timerValueIndicator.text = timeBar.value.ToString();
         }
     }
 }
