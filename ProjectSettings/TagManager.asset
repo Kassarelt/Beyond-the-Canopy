@@ -24,9 +24,9 @@ TagManager:
   - 
   - Player
   - Platform
+  - MovingPlatform
+  - 
   - InFront
-  - 
-  - 
   - 
   - 
   - 
