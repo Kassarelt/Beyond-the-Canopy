@@ -16,8 +16,8 @@ public class Player : MonoBehaviour
     private Rigidbody2D body;
 
     //Cluster for particle effect
-    public GameObject walkingEffect;
-    private Vector2 effectPos;
+   // public GameObject walkingEffect;
+   // private Vector2 effectPos;
 
 
     // Variable to check if left or right
@@ -29,29 +29,32 @@ public class Player : MonoBehaviour
     private Transform groundCheck;
 
     // Variable for Spaceship
-    public Transform spaceShip;
+    // public Transform spaceShip;
 
     // Variable of Animators
     private Animator playerAnim;
-    private Animator dastAnim;
+   // private Animator dastAnim;
 
     // Variable to check if object has been collected and to play on time
-    public GameObject itemUI;
+   // public GameObject itemUI;
     public int maxItems;
     private int countItems = 0;
     
     // Varibale for move Objects
     private float distanceToBottomOfPlayer = 7f;
     private GameObject lockedObject = null;
+    public static bool isFpressed = false;
+
+    public float distanceToSides = 7f;
 
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
         playerAnim = GetComponent<Animator>();
         groundCheck = GameObject.Find("groundCheck").transform;
-        dastAnim = GameObject.Find("dast").GetComponent<Animator>();
+       // dastAnim = GameObject.Find("dast").GetComponent<Animator>();
 
-        itemUI.GetComponent<Text>().text = countItems + "/" + maxItems;
+       // itemUI.GetComponent<Text>().text = countItems + "/" + maxItems;
         
     }
 
@@ -62,11 +65,11 @@ public class Player : MonoBehaviour
 
 
         //walking effect management
-        effectPos = new Vector2(transform.position.x, transform.position.y - 3.9f);
-        //instantiating the walking effect
-        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.Space)) {
-            Instantiate(walkingEffect, effectPos, Quaternion.Euler(180, 0, 180));
-        }
+        //effectPos = new Vector2(transform.position.x, transform.position.y - 3.9f);
+        ////instantiating the walking effect
+        //if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.Space)) {
+        //    Instantiate(walkingEffect, effectPos, Quaternion.Euler(180, 0, 180));
+        //}
 
         // Movement
         float speed = Input.GetAxis("Horizontal") * MaxSpeed;
@@ -87,12 +90,12 @@ public class Player : MonoBehaviour
         if (speed != 0)
         {
             playerAnim.SetBool("isWalking", true);
-            dastAnim.SetBool("isWalking", true);
+           // dastAnim.SetBool("isWalking", true);
         }
         else
         {
             playerAnim.SetBool("isWalking", false);
-            dastAnim.SetBool("isWalking", false);
+           // dastAnim.SetBool("isWalking", false);
         }
 
         // Move OBJECT
@@ -109,16 +112,22 @@ public class Player : MonoBehaviour
             }
             if (ray.collider != null && ray.collider.tag == "movableObject" && ray.distance < distanceToBottomOfPlayer)
             {
+                
                 lockedObject = ray.collider.gameObject;
-                lockedObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+                isFpressed = true;
+                //lockedObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
             }
         }
-        if (Input.GetKeyUp(KeyCode.F) && lockedObject != null && isGrounded /*&& !isCollected*/)
+        if (Input.GetKeyUp(KeyCode.F) /*&& lockedObject != null && isGrounded && !isCollected*/)
         {
-            lockedObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-            lockedObject = null;
+            if (lockedObject != null && isGrounded)
+            {
+                isFpressed = false;
+                lockedObject = null;
+                //lockedObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            }
         }
-        if (/*!isCollected &&*/ lockedObject != null)
+        if (/*!isCollected &&*/ lockedObject != null && (lockedObject.GetComponent<Rigidbody2D>().bodyType != RigidbodyType2D.Static))
         {
             lockedObject.GetComponent<Rigidbody2D>().velocity = new Vector2(speed, lockedObject.GetComponent<Rigidbody2D>().velocity.y);
         }
@@ -159,9 +168,34 @@ public class Player : MonoBehaviour
         {
             Flip();
         }
+
+        if (!isGrounded)
+        {
+            RaycastHit2D ray;
+
+            // Get top of platform
+            Bounds bounds = GetComponent<SpriteRenderer>().bounds;
+
+            Vector2 startRay;
+            if (facingRight)
+            {
+                startRay = new Vector2(bounds.center.x + (bounds.size.x / 2) + 0.1f, bounds.center.y + (bounds.size.y / 2)+0.1f);
+            }
+            else
+            {
+                startRay = new Vector2(bounds.center.x - (bounds.size.x / 2) - 0.1f, bounds.center.y + (bounds.size.y / 2)+0.1f);
+            }
+            ray = Physics2D.Raycast(startRay, new Vector2(0, -bounds.size.y - 0.1f));
+
+            Debug.Log(bounds.size.y);
+            Debug.Log(ray.distance);
+            if (ray.collider != null && ray.distance < bounds.size.y)
+            {
+                body.velocity = new Vector3(0, body.velocity.y, 0);
+            }
+        }
     }
-
-
+    
     private void Flip()
     {
         facingRight = !facingRight;
@@ -174,7 +208,7 @@ public class Player : MonoBehaviour
         {
             Destroy(other.gameObject);
             countItems += 1;
-            itemUI.GetComponent<Text>().text = countItems + "/" + maxItems;
+           // itemUI.GetComponent<Text>().text = countItems + "/" + maxItems;
 
             if (countItems == maxItems)
             {
@@ -184,20 +218,20 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.tag == "movableObject")
-        {
-            other.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-        }
-    }
+    //private void OnCollisionEnter2D(Collision2D other)
+    //{
+    //    if (other.gameObject.tag == "movableObject")
+    //    {
+    //        other.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+    //    }
+    //}
 
-    private void OnCollisionExit2D(Collision2D other)
-    {
-        if (other.gameObject.tag == "movableObject")
-        {
-            lockedObject = null;
-            other.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-        }
-    }
+    //private void OnCollisionExit2D(Collision2D other)
+    //{
+    //    if (other.gameObject.tag == "movableObject")
+    //    {
+    //        lockedObject = null;
+    //        other.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+    //    }
+    //}
 }

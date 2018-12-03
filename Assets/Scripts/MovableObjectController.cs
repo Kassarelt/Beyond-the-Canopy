@@ -4,32 +4,31 @@ using UnityEngine;
 
 public class MovableObjectController : MonoBehaviour
 {
-    private void OnCollisionEnter2D(Collision2D collision)
+    private float distToGround;
+    
+    private bool IsGrounded()
     {
-        if (collision.gameObject.tag == "Player" && collision.gameObject.tag == "Platform")
-        {
-            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-        }
-        if (collision.gameObject.tag == "movablePlatform")
-        {
-            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-        }
+        distToGround = GetComponent<Collider2D>().bounds.extents.y;
+        RaycastHit2D ray;
+        ray = Physics2D.Raycast(transform.position, -Vector3.up, distToGround + 0.1f);
+        if (ray.collider != null && ray.collider.tag == "Platform") { return true; }
+        else { return false; }
     }
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Player" && collision.gameObject.tag == "Platform")
-        {
-            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-        }
-        if (collision.gameObject.tag == "movablePlatform")
-        {
-            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-        }
-    }
-    private void OnCollisionExit2D(Collision2D collision)
-    {
 
-        if (collision.gameObject.tag == "Player" && collision.gameObject.tag == "Platform")
+    private void Update()
+    {
+        if (IsGrounded())
+        {
+            if (Player.isFpressed)
+            {
+                GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+            }
+            else
+            {
+                GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            }
+        }
+        else
         {
             GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         }
