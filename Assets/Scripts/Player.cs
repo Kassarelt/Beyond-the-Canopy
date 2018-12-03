@@ -28,8 +28,10 @@ public class Player : MonoBehaviour
     public LayerMask WhatIsGround;
     private Transform groundCheck;
 
-    // Variable for Spaceship
-    // public Transform spaceShip;
+    //Cluster for particle effect
+    public GameObject walkingEffect;
+    public GameObject jumpEffect;
+    private Vector2 effectPos;
 
     // Variable of Animators
     private Animator playerAnim;
@@ -65,11 +67,16 @@ public class Player : MonoBehaviour
 
 
         //walking effect management
-        //effectPos = new Vector2(transform.position.x, transform.position.y - 3.9f);
-        ////instantiating the walking effect
-        //if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.Space)) {
-        //    Instantiate(walkingEffect, effectPos, Quaternion.Euler(180, 0, 180));
-        //}
+        effectPos = new Vector2(transform.position.x, transform.position.y - 3.9f);
+        //instantiating the walking effect
+        if ((Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) && isGrounded)
+        {
+            Instantiate(walkingEffect, effectPos, Quaternion.Euler(180, 0, 180));
+        }
+        else if ((Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) && isGrounded)
+        {
+            Instantiate(walkingEffect, effectPos, Quaternion.Euler(0, 0, 0));
+        }
 
         // Movement
         float speed = Input.GetAxis("Horizontal") * MaxSpeed;
@@ -85,17 +92,14 @@ public class Player : MonoBehaviour
 
         // ANIMATION
         playerAnim.SetBool("isGrounded", isGrounded);
-        //dastAnim.SetBool("isGrounded", isGrounded);
 
         if (speed != 0)
         {
             playerAnim.SetBool("isWalking", true);
-           // dastAnim.SetBool("isWalking", true);
         }
         else
         {
             playerAnim.SetBool("isWalking", false);
-           // dastAnim.SetBool("isWalking", false);
         }
 
         // Move OBJECT
@@ -136,7 +140,10 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded && /*!isCollected &&*/ lockedObject == null)
         {
             body.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
-           // doubleJump = true;
+            // doubleJump = true;
+
+            //jumping effect
+            Instantiate(jumpEffect, effectPos, Quaternion.identity);
         }
         //else if (Input.GetButtonDown("Jump") && doubleJump)
         //{
@@ -187,8 +194,6 @@ public class Player : MonoBehaviour
             }
             ray = Physics2D.Raycast(startRay, new Vector2(0, -bounds.size.y - 0.1f));
 
-            Debug.Log(bounds.size.y);
-            Debug.Log(ray.distance);
             if (ray.collider != null && ray.distance < bounds.size.y)
             {
                 body.velocity = new Vector3(0, body.velocity.y, 0);
