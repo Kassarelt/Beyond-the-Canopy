@@ -194,7 +194,7 @@ public class Player : MonoBehaviour
             }
             ray = Physics2D.Raycast(startRay, new Vector2(0, -bounds.size.y - 0.1f));
 
-            if (ray.collider != null && ray.distance < bounds.size.y)
+            if (ray.collider != null && ray.distance < bounds.size.y && ray.collider.tag != "CoveringLayer")
             {
                 body.velocity = new Vector3(0, body.velocity.y, 0);
             }
