@@ -25,7 +25,7 @@ public class PlayerTimer : MonoBehaviour {
 
 
     // Variable to check ground
-    public bool isGrounded;
+    public bool isGrounded = false;
     public float groundCheckRadius = 0.1f;
     public LayerMask WhatIsGround;
     private Transform groundCheck;
@@ -33,23 +33,24 @@ public class PlayerTimer : MonoBehaviour {
     // Use this for initialization
     void Start () {
         playerMoveScript = gameObject.GetComponent<Player>();
-
+        groundCheck = GameObject.Find("groundCheck").transform;
         timerValueIndicator.text = timeBar.value.ToString();
     }
 	
 	// Update is called once per frame
 	void LateUpdate () {
-        fallDmg();
+        FallDmg();
         TimeCounter();
     }
 
-    void fallDmg()
+    void FallDmg()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, WhatIsGround);
-        if (!wasGrounded && isGrounded && gameObject.GetComponent<Rigidbody2D>().velocity.y > velocityFallMax)
+        if (!wasGrounded && isGrounded && gameObject.GetComponent<Rigidbody2D>().velocity.y < -velocityFallMax)
         {
-            timeBar.value -= fallDamage * (gameObject.GetComponent<Rigidbody2D>().velocity.y - velocityFallMax);
+            timeBar.value -= fallDamage * (-gameObject.GetComponent<Rigidbody2D>().velocity.y - velocityFallMax);
         }
+        wasGrounded = isGrounded;
     }
 
     void TimeCounter()
@@ -64,7 +65,7 @@ public class PlayerTimer : MonoBehaviour {
                 //UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
                 //SceneTransitionMenu scene = new SceneTransitionMenu();
                 //scene.Reload();
-                sceneManager.Reload();
+                //sceneManager.Reload();
             }
         }
        
