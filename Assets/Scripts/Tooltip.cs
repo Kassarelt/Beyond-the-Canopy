@@ -18,12 +18,7 @@ public class Tooltip : MonoBehaviour {
         tooltipOpen = false;
         if (SceneManager.GetActiveScene().name != "Menu" /*&& SceneManager.GetActiveScene().name != "InformationScreen"*/)
         {
-            tooltipText.text = "Oh I forgot to tell you, if you press F on your suit-controller near some heavy objets you will me able to drag them. Last thing, if anything goes wrong press R and your last actions will be reset.\nIf you need my help again just press H.\nGood luck Challenger 42, over.";
-            if (!tooltipOpen)
-            {
-                tooltipOpen = true;
-                OpenTooltip();
-            }
+            OpenLevelTooltip();
         }
     }
 
@@ -32,12 +27,7 @@ public class Tooltip : MonoBehaviour {
         if (SceneManager.GetActiveScene().name != "Menu" /*&& SceneManager.GetActiveScene().name != "InformationScreen"*/)
         {
             if (Input.GetKeyDown(KeyCode.H)){
-            tooltipText.text = "Hello again! So as I told you if you press F on your suit-controller near some heavy objets you will me able to drag them. If anything goes wrong press R and your last actions will be reset.\nIf you need my help again just press H.\nGood luck Challenger 42, over.";
-                if (!tooltipOpen)
-                {
-                    tooltipOpen = true;
-                    OpenTooltip();
-                }
+                OpenLevelTooltip();
             }
         }
     }
@@ -75,5 +65,32 @@ public class Tooltip : MonoBehaviour {
             tooltipOpen = true;
             OpenTooltip();
         }
+    }
+
+    //Tooltip for the level
+    public void OpenLevelTooltip()
+    {
+        tooltipText.text = "Don't forget if you press F on your suit-controller near some heavy objets you will me able to drag them.";
+        if (!tooltipOpen)
+        {
+            tooltipOpen = true;
+            StopAllCoroutines();
+            tooltipImage.SetActive(true);
+            tooltipAnim.SetTrigger("start");
+            StartCoroutine(TooltipLevelCoroutine());
+        }
+    }
+
+    IEnumerator TooltipLevelCoroutine()
+    {
+        yield return new WaitForSeconds(3f);
+        tooltipText.text = "If anything goes wrong press R and your last actions will be reset.";
+        yield return new WaitForSeconds(3f);
+        tooltipText.text = "If you need my help again just press H.\nGood luck Challenger 42, over.";
+        yield return new WaitForSeconds(3f);
+        tooltipAnim.SetTrigger("start");
+        yield return new WaitForSeconds(0.5f);
+        tooltipImage.SetActive(false);
+        tooltipOpen = false;
     }
 }
