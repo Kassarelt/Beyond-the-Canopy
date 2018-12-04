@@ -23,12 +23,15 @@ public class PlayerTimer : MonoBehaviour {
     public float fallDamage;
     public float velocityFallMax;
 
-
     // Variable to check ground
     public bool isGrounded = false;
     public float groundCheckRadius = 0.1f;
     public LayerMask WhatIsGround;
     private Transform groundCheck;
+
+    //storing the colors to change the alpha in coroutine
+    private Color hitColor1 = new Color(0, 0.9411765f, 1);
+    private Color hitColor2 = new Color(1f, 1f, 1f);
 
     // Use this for initialization
     void Start () {
@@ -49,6 +52,7 @@ public class PlayerTimer : MonoBehaviour {
         if (!wasGrounded && isGrounded && gameObject.GetComponent<Rigidbody2D>().velocity.y < -velocityFallMax)
         {
             timeBar.value -= fallDamage * (-gameObject.GetComponent<Rigidbody2D>().velocity.y - velocityFallMax);
+            StartCoroutine(hitAnimation());
         }
         wasGrounded = isGrounded;
     }
@@ -72,15 +76,36 @@ public class PlayerTimer : MonoBehaviour {
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Trap")
+        if (collision.gameObject.tag == "Spike")
         {
             timeBar.value -= spikeDamage;
+            StartCoroutine(hitAnimation());
+            Debug.Log("I'm starting coroutine");
             timerValueIndicator.text = timeBar.value.ToString();
         }
         if (collision.gameObject.tag == "Lava")
         {
             timeBar.value -= lavaDamage;
+            StartCoroutine(hitAnimation());
             timerValueIndicator.text = timeBar.value.ToString();
         }
+    }
+
+    //using coroutine to change the players sprite color in order to keep the animation cycle easy
+    IEnumerator hitAnimation()
+    {
+        Debug.Log("I'm into the coroutine");
+        gameObject.GetComponent<SpriteRenderer>().color = hitColor1;
+        yield return new WaitForSeconds(0.1f);
+        gameObject.GetComponent<SpriteRenderer>().color = hitColor2;
+        yield return new WaitForSeconds(0.1f);
+        gameObject.GetComponent<SpriteRenderer>().color = hitColor1;
+        yield return new WaitForSeconds(0.1f);
+        gameObject.GetComponent<SpriteRenderer>().color = hitColor2;
+        yield return new WaitForSeconds(0.1f);
+        gameObject.GetComponent<SpriteRenderer>().color = hitColor1;
+        yield return new WaitForSeconds(0.1f);
+        gameObject.GetComponent<SpriteRenderer>().color = hitColor2;
+        Debug.Log("I'm about to end the coroutine");
     }
 }
