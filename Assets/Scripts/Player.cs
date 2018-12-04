@@ -15,11 +15,6 @@ public class Player : MonoBehaviour
 
     private Rigidbody2D body;
 
-    //Cluster for particle effect
-   // public GameObject walkingEffect;
-   // private Vector2 effectPos;
-
-
     // Variable to check if left or right
     private bool facingRight = false;
    
@@ -35,10 +30,10 @@ public class Player : MonoBehaviour
 
     // Variable of Animators
     private Animator playerAnim;
-   // private Animator dastAnim;
+    //private Animator dastAnim;
 
     // Variable to check if object has been collected and to play on time
-   // public GameObject itemUI;
+    public GameObject itemUI;
     public int maxItems;
     private int countItems = 0;
     
@@ -213,7 +208,7 @@ public class Player : MonoBehaviour
         {
             Destroy(other.gameObject);
             countItems += 1;
-           // itemUI.GetComponent<Text>().text = countItems + "/" + maxItems;
+            itemUI.GetComponent<Text>().text = countItems + "/" + maxItems;
 
             if (countItems == maxItems)
             {

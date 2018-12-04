@@ -16,6 +16,30 @@ public class Tooltip : MonoBehaviour {
     private void Start()
     {
         tooltipOpen = false;
+        if (SceneManager.GetActiveScene().name != "Menu" /*&& SceneManager.GetActiveScene().name != "InformationScreen"*/)
+        {
+            tooltipText.text = "Oh I forgot to tell you, if you press F on your suit-controller near some heavy objets you will me able to drag them. Last thing, if anything goes wrong press R and your last actions will be reset.\nIf you need my help again just press H.\nGood luck Challenger 42, over.";
+            if (!tooltipOpen)
+            {
+                tooltipOpen = true;
+                OpenTooltip();
+            }
+        }
+    }
+
+    private void Update()
+    {
+        if (SceneManager.GetActiveScene().name != "Menu" /*&& SceneManager.GetActiveScene().name != "InformationScreen"*/)
+        {
+            if (Input.GetKeyDown(KeyCode.H)){
+            tooltipText.text = "Hello again! So as I told you if you press F on your suit-controller near some heavy objets you will me able to drag them. If anything goes wrong press R and your last actions will be reset.\nIf you need my help again just press H.\nGood luck Challenger 42, over.";
+                if (!tooltipOpen)
+                {
+                    tooltipOpen = true;
+                    OpenTooltip();
+                }
+            }
+        }
     }
 
     public void OpenTooltip()

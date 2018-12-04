@@ -16,8 +16,9 @@ public class SceneTransitionMenu : MonoBehaviour {
 	}
 
 	IEnumerator LoadScene1(){
+        Time.timeScale = 1;
 		transitionAnim.SetTrigger ("end");
-		yield return new WaitForSeconds (2.5f);
+		yield return new WaitForSeconds (2.3f);
 		SceneManager.LoadScene (newGame);
 	}
 
@@ -26,8 +27,9 @@ public class SceneTransitionMenu : MonoBehaviour {
 	}
 
 	IEnumerator LoadScene2(){
-		transitionAnim.SetTrigger ("end");
-		yield return new WaitForSeconds (2.5f);
+        Time.timeScale = 1;
+        transitionAnim.SetTrigger ("end");
+		yield return new WaitForSeconds (2.3f);
 		SceneManager.LoadScene (loadGame);
 	}
 
@@ -36,8 +38,9 @@ public class SceneTransitionMenu : MonoBehaviour {
 	}
 
 	IEnumerator LoadScene3(){
-		transitionAnim.SetTrigger ("end");
-		yield return new WaitForSeconds (2.5f);
+        Time.timeScale = 1;
+        transitionAnim.SetTrigger ("end");
+		yield return new WaitForSeconds (2.3f);
 		SceneManager.LoadScene (options);
 	}
 
@@ -46,8 +49,9 @@ public class SceneTransitionMenu : MonoBehaviour {
 	}
 
 	IEnumerator LoadScene4(){
-		transitionAnim.SetTrigger ("end");
-		yield return new WaitForSeconds (2.5f);
+        Time.timeScale = 1;
+        transitionAnim.SetTrigger ("end");
+		yield return new WaitForSeconds (2.3f);
 		SceneManager.LoadScene (menu);
 	}
 
@@ -58,8 +62,9 @@ public class SceneTransitionMenu : MonoBehaviour {
 
     IEnumerator ReloadScene()
     {
+        Time.timeScale = 1;
         transitionAnim.SetTrigger("end");
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(2.3f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -70,8 +75,9 @@ public class SceneTransitionMenu : MonoBehaviour {
 
     IEnumerator QuitGame()
     {
+        Time.timeScale = 1;
         transitionAnim.SetTrigger("end");
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(2.3f);
         Application.Quit();
     }
 }
