@@ -116,7 +116,7 @@ public class Player : MonoBehaviour
             }
             if (ray.collider != null && ray.collider.tag == "movableObject" && ray.distance < distanceToBottomOfPlayer)
             {
-                
+                playerAnim.SetBool("isPulling", true);
                 lockedObject = ray.collider.gameObject;
                 isFpressed = true;
                 //lockedObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
@@ -126,6 +126,7 @@ public class Player : MonoBehaviour
         {
             if (lockedObject != null && isGrounded)
             {
+                playerAnim.SetBool("isPulling", false);
                 isFpressed = false;
                 lockedObject = null;
                 //lockedObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
