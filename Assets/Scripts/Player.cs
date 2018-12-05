@@ -50,11 +50,17 @@ public class Player : MonoBehaviour
     public AudioClip dustSound;
     public AudioClip collectingSound;
 
+    // GameManager access
+    private GameManager manager;
+
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
         playerAnim = GetComponent<Animator>();
         groundCheck = GameObject.Find("groundCheck").transform;
+
+        manager = GameObject.FindObjectOfType<GameManager>();
+
        // dastAnim = GameObject.Find("dast").GetComponent<Animator>();
 
        // itemUI.GetComponent<Text>().text = countItems + "/" + maxItems;
@@ -208,7 +214,10 @@ public class Player : MonoBehaviour
         facingRight = !facingRight;
         transform.localScale = new Vector3(-1 * transform.localScale.x, transform.localScale.y, 1);
     }
+
     Vector3 vectorPlatform;
+
+    // Collecting the materials
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "TheOre")
@@ -220,8 +229,18 @@ public class Player : MonoBehaviour
             if (countItems == maxItems)
             {
                 // TODO LOAD SCENE END WHEN READY
-                // SceneManager.LoadScene("Menu");
+                setLevelBool();
+                SceneManager.LoadScene("InformationScreen");
             }
+        }
+    }
+
+    // Validation of levels
+    private void setLevelBool() {
+        string levelName = SceneManager.GetActiveScene().name;
+        if (levelName == "Mars"){
+            manager.marsFinished = true;
+            manager.lastLevelFinished = "Mars";
         }
     }
 

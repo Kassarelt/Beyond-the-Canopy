@@ -118,6 +118,5 @@ public class PlayerTimer : MonoBehaviour {
         gameObject.GetComponent<SpriteRenderer>().color = hitColor1;
         yield return new WaitForSeconds(0.1f);
         gameObject.GetComponent<SpriteRenderer>().color = hitColor2;
-        Debug.Log("I'm about to end the coroutine");
     }
 }

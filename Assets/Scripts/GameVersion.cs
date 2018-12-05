@@ -14,6 +14,6 @@ public class GameVersion : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		gameVersionText.text = "Gametitle Whatever version alpha " + Application.version;
+		gameVersionText.text = "Beyond the Canopy, Version a." + Application.version;
 	}
 }

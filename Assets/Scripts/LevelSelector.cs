@@ -18,12 +18,24 @@ public class LevelSelector : MonoBehaviour {
 
     public Sprite[] bigPlanets;
 
+    // GameManager access
+    private GameManager manager;
+
     public void Start()
     {
+        manager = GameObject.FindObjectOfType<GameManager>();
         profName.text = "Professor Spacestein";
         profInformation.text = "Age: 64\nSize: 1m65\nWeight: Too Much\nHobbies: eat burritos in front of Star Wars";
 
-        Mars();
+        if (manager.firstOpenInfoScreen)
+        {
+            manager.firstOpenInfoScreen = false;
+            Mars();
+        }
+        else if (manager.marsFinished && manager.lastLevelFinished == "Mars") {
+            Mars();
+            profText.text = "Good job Challenger 42! I'm happy you managed to gather all Chronoton crystals on Mars without troubles.\n\nI must admit I was not expecting you to return that quickly and I don't have any further missions for you...\n\nAnyway, thanks for the crystals! I will contact you as soon as I have a new missions.\nOver";
+        }
     }
 
     public void Mercury()
@@ -61,13 +73,20 @@ public class LevelSelector : MonoBehaviour {
 
     public void Mars()
     {
-        startButton.interactable = true;
-        sceneManager.newGame = "RalphsPlatformScene";
+        sceneManager.newGame = "Mars";
 
         bigPlanetFrame.sprite = bigPlanets[3];
         bigPlanetName.text = "Mars";
         bigPlanetInfo.text = "Volume:\n  163.18*E9 km3\n  (0.107 Earth)\n\nDaytime:\n  24.6h\n\nOrbital period:\n  686.98d";
-        profText.text = "Welcome Challenger 42,\n\nIt's on Mars that you will do your first test. Remember, you must proove that you deserve more than others to be the first human to travel beyond the Solar System.\n\nYour missions is to collect Chronoton crystals/Dilithium all around the planet.\n\nThe air of Mars isn't breathable, so your time is limited.\n\nIn addition, the core of the planet is hot and your suit won't stand a long exposure.\n\nThe gravity is three time lower than on earth. Make good use of this but remember, a rough landing could damaged your suit or even worse if you are not careful enough.\n\nGood Luck Challenger 42.";
+        if (!manager.marsFinished)
+        {
+            startButton.interactable = true;
+            profText.text = "Welcome Challenger 42,\n\nIt's on Mars that you will do your first test. Remember, you must proove that you deserve more than others to be the first human to travel beyond the Solar System.\n\nYour missions is to collect Chronoton crystals/Dilithium all around the planet.\n\nThe air of Mars isn't breathable, so your time is limited.\n\nIn addition, the core of the planet is hot and your suit won't stand a long exposure.\n\nThe gravity is three time lower than on earth. Make good use of this but remember, a rough landing could damaged your suit or even worse if you are not careful enough.\n\nGood Luck Challenger 42.";
+        }
+        else {
+            startButton.interactable = false;
+            profText.text = "You've done well Challenger 42 on planet Mars!\nNo need to go back there, you already collected all Chronoton crystals.";
+        }
     }
 
     public void Jupiter()
