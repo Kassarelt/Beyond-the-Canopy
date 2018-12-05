@@ -103,7 +103,7 @@ public class PlayerTimer : MonoBehaviour {
         }
     }
 
-    private void OnParticleCollision(GameObject other)
+    private void OnParticleCollision(GameObject steamTraps)
     {
         
             Debug.Log("Dmg");

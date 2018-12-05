@@ -191,7 +191,7 @@ public class Player : MonoBehaviour
         }*/
 
         // Flip the player when require
-        if ((speed > 0 && !facingRight) || (speed < 0 && facingRight))
+        if (((speed > 0 && !facingRight) || (speed < 0 && facingRight)) && !Input.GetKey(KeyCode.F))
         {
             Flip();
         }
