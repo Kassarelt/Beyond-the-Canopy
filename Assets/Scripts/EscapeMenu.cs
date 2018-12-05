@@ -17,6 +17,7 @@ public class EscapeMenu : MonoBehaviour {
     void Start () {
         isPaused = false;
         escapeMenu.SetActive(false);
+        Cursor.visible = false;
 	}
 	
 	// Update is called once per frame
@@ -27,9 +28,11 @@ public class EscapeMenu : MonoBehaviour {
             if (isPaused)
             {
                 Time.timeScale = 0;
+                Cursor.visible = true;
             }
             else {
                 Time.timeScale = 1;
+                Cursor.visible = false;
             }
         }
         if (Input.GetKeyDown(KeyCode.R))

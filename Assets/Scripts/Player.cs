@@ -37,12 +37,18 @@ public class Player : MonoBehaviour
     public int maxItems;
     private int countItems = 0;
     
-    // Varibale for move Objects
+    // Variable for move Objects
     private float distanceToBottomOfPlayer = 7f;
     private GameObject lockedObject = null;
     public static bool isFpressed = false;
 
     public float distanceToSides = 7f;
+
+    // Variables for sound effects
+    public AudioClip walkingSound;
+    public AudioClip jumpingSound;
+    public AudioClip dustSound;
+    public AudioClip collectingSound;
 
     void Start()
     {

@@ -23,6 +23,10 @@ public class PlayerTimer : MonoBehaviour {
     public float fallDamage;
     public float velocityFallMax;
 
+    // Variable for sound effect
+    public AudioClip spikeHitSound;
+    private AudioSource audioSource;
+
     // Variable to check ground
     public bool isGrounded = false;
     public float groundCheckRadius = 0.1f;
@@ -79,8 +83,15 @@ public class PlayerTimer : MonoBehaviour {
         if (collision.gameObject.tag == "Spike")
         {
             timeBar.value -= spikeDamage;
+            if (audioSource == null)
+            {
+                audioSource = GetComponent<AudioSource>();
+            }
+            if (audioSource == null)
+            {
+                audioSource = gameObject.AddComponent<AudioSource>();
+            }
             StartCoroutine(hitAnimation());
-            Debug.Log("I'm starting coroutine");
             timerValueIndicator.text = timeBar.value.ToString();
         }
         if (collision.gameObject.tag == "Lava")
@@ -94,11 +105,12 @@ public class PlayerTimer : MonoBehaviour {
     //using coroutine to change the players sprite color in order to keep the animation cycle easy
     IEnumerator hitAnimation()
     {
-        Debug.Log("I'm into the coroutine");
+        audioSource.PlayOneShot(spikeHitSound);
         gameObject.GetComponent<SpriteRenderer>().color = hitColor1;
         yield return new WaitForSeconds(0.1f);
         gameObject.GetComponent<SpriteRenderer>().color = hitColor2;
         yield return new WaitForSeconds(0.1f);
+        audioSource.PlayOneShot(spikeHitSound);
         gameObject.GetComponent<SpriteRenderer>().color = hitColor1;
         yield return new WaitForSeconds(0.1f);
         gameObject.GetComponent<SpriteRenderer>().color = hitColor2;
