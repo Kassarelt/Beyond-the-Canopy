@@ -45,16 +45,25 @@ public class Player : MonoBehaviour
     public float distanceToSides = 7f;
 
     // Variables for sound effects
+    private AudioSource audioSource;
     public AudioClip walkingSound;
     public AudioClip jumpingSound;
-    public AudioClip dustSound;
     public AudioClip collectingSound;
+    public AudioClip victorySound;
 
     // GameManager access
     private GameManager manager;
 
     void Start()
     {
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
         body = GetComponent<Rigidbody2D>();
         playerAnim = GetComponent<Animator>();
         groundCheck = GameObject.Find("groundCheck").transform;
@@ -78,10 +87,12 @@ public class Player : MonoBehaviour
         //instantiating the walking effect
         if ((Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) && isGrounded)
         {
+            audioSource.PlayOneShot(walkingSound);
             Instantiate(walkingEffect, effectPos, Quaternion.Euler(180, 0, 180));
         }
         else if ((Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) && isGrounded)
         {
+            audioSource.PlayOneShot(walkingSound);
             Instantiate(walkingEffect, effectPos, Quaternion.Euler(0, 0, 0));
         }
 
@@ -147,6 +158,7 @@ public class Player : MonoBehaviour
         // JUMP
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded && /*!isCollected &&*/ lockedObject == null)
         {
+            audioSource.PlayOneShot(jumpingSound);
             body.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
             // doubleJump = true;
 
@@ -215,6 +227,15 @@ public class Player : MonoBehaviour
         transform.localScale = new Vector3(-1 * transform.localScale.x, transform.localScale.y, 1);
     }
 
+    IEnumerator victory()
+    {
+        SceneManager.LoadScene("InformationScreen");
+        GameObject.Find("Main Camera").GetComponent<AudioSource>().Stop();      
+        yield return new WaitForSeconds(0.1f);
+        audioSource.PlayOneShot(victorySound);
+        setLevelBool();
+    }
+
     Vector3 vectorPlatform;
 
     // Collecting the materials
@@ -223,14 +244,13 @@ public class Player : MonoBehaviour
         if (other.gameObject.tag == "TheOre")
         {
             Destroy(other.gameObject);
+            audioSource.PlayOneShot(collectingSound);
             countItems += 1;
             itemUI.GetComponent<Text>().text = countItems + "/" + maxItems;
 
             if (countItems == maxItems)
             {
-                // TODO LOAD SCENE END WHEN READY
-                setLevelBool();
-                SceneManager.LoadScene("InformationScreen");
+                StartCoroutine(victory());
             }
         }
     }
@@ -243,21 +263,4 @@ public class Player : MonoBehaviour
             manager.lastLevelFinished = "Mars";
         }
     }
-
-    //private void OnCollisionEnter2D(Collision2D other)
-    //{
-    //    if (other.gameObject.tag == "movableObject")
-    //    {
-    //        other.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-    //    }
-    //}
-
-    //private void OnCollisionExit2D(Collision2D other)
-    //{
-    //    if (other.gameObject.tag == "movableObject")
-    //    {
-    //        lockedObject = null;
-    //        other.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-    //    }
-    //}
 }

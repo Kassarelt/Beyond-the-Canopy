@@ -9,10 +9,12 @@ public class PlayerTimer : MonoBehaviour {
     public Slider timeBar;
     [Range(0, 2f)]
     public float timeSpeed;
-    [Range(0,0.5f)]
+    [Range(0,100f)]
     public float spikeDamage;
-    [Range(0, 0.5f)]
+    [Range(0, 100f)]
     public float lavaDamage;
+    [Range(0, 100f)]
+    public float trapDamage;
 
     public Text timerValueIndicator;
 
@@ -24,8 +26,9 @@ public class PlayerTimer : MonoBehaviour {
     public float velocityFallMax;
 
     // Variable for sound effect
-    public AudioClip spikeHitSound;
     private AudioSource audioSource;
+    public AudioClip spikeHitSound;
+    public AudioClip loseSound;
 
     // Variable to check ground
     public bool isGrounded = false;
@@ -39,6 +42,14 @@ public class PlayerTimer : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
         playerMoveScript = gameObject.GetComponent<Player>();
         groundCheck = GameObject.Find("groundCheck").transform;
         timerValueIndicator.text = timeBar.value.ToString();
@@ -70,10 +81,8 @@ public class PlayerTimer : MonoBehaviour {
 
             if (timeBar.value == 0)
             {
-                //UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
-                //SceneTransitionMenu scene = new SceneTransitionMenu();
-                //scene.Reload();
-                //sceneManager.Reload();
+                StartCoroutine(death());
+                timeBar.value = 100f;
             }
         }
        
@@ -83,14 +92,6 @@ public class PlayerTimer : MonoBehaviour {
         if (collision.gameObject.tag == "Spike")
         {
             timeBar.value -= spikeDamage;
-            if (audioSource == null)
-            {
-                audioSource = GetComponent<AudioSource>();
-            }
-            if (audioSource == null)
-            {
-                audioSource = gameObject.AddComponent<AudioSource>();
-            }
             StartCoroutine(hitAnimation());
             timerValueIndicator.text = timeBar.value.ToString();
         }
@@ -100,6 +101,21 @@ public class PlayerTimer : MonoBehaviour {
             StartCoroutine(hitAnimation());
             timerValueIndicator.text = timeBar.value.ToString();
         }
+        if (collision.gameObject.tag == "Trap")
+        {
+            Debug.Log("Dmg");
+            timeBar.value -= trapDamage;
+            StartCoroutine(hitAnimation());
+            timerValueIndicator.text = timeBar.value.ToString();
+        }
+    }
+
+    IEnumerator death()
+    {
+        sceneManager.Reload();
+        GameObject.Find("Main Camera").GetComponent<AudioSource>().Stop();
+        yield return new WaitForSeconds(0.1f);
+        audioSource.PlayOneShot(loseSound); 
     }
 
     //using coroutine to change the players sprite color in order to keep the animation cycle easy
