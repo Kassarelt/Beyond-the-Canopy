@@ -101,13 +101,16 @@ public class PlayerTimer : MonoBehaviour {
             StartCoroutine(hitAnimation());
             timerValueIndicator.text = timeBar.value.ToString();
         }
-        if (collision.gameObject.tag == "Trap")
-        {
+    }
+
+    private void OnParticleCollision(GameObject other)
+    {
+        
             Debug.Log("Dmg");
             timeBar.value -= trapDamage;
             StartCoroutine(hitAnimation());
             timerValueIndicator.text = timeBar.value.ToString();
-        }
+        
     }
 
     IEnumerator death()

@@ -229,11 +229,11 @@ public class Player : MonoBehaviour
 
     IEnumerator victory()
     {
+        setLevelBool();
         SceneManager.LoadScene("InformationScreen");
         GameObject.Find("Main Camera").GetComponent<AudioSource>().Stop();      
         yield return new WaitForSeconds(0.1f);
         audioSource.PlayOneShot(victorySound);
-        setLevelBool();
     }
 
     Vector3 vectorPlatform;
