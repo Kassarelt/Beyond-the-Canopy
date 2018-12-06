@@ -1,4 +1,4 @@
-# Beyond the Canopy  
+﻿# Beyond the Canopy  
   
 Unity 2018  
   
@@ -40,9 +40,9 @@ R: Restart the Level
 The learning goal is to learn some things about planets of our solar system. Gameplay of Level will depends of Planet.
   
 ## Team Members  
-  
-Novi Lin  
+   
 Ralph Söthe  
 Osman Sinan  
 Guillaume Celli  
 Asuka Kawagushi  
+Limbaroyati
