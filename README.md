@@ -41,8 +41,8 @@ The learning goal is to learn some things about planets of our solar system. Gam
 
 ## Team Members
 
-Novi Lin
-Ralph Söthe
-Osman Sinan
-Guillaume Celli
+Novi Lin\n
+Ralph Söthe\n
+Osman Sinan\n
+Guillaume Celli\n
 Asuka Kawagushi
