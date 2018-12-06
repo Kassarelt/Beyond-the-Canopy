@@ -6,15 +6,15 @@ using UnityEngine.UI;
 public class PlayerTimer : MonoBehaviour {
 
     // Variable to parameter to choose time
-    public float timeOfLevel;
+    public float timeOfLevel = 30;
     public Slider timeBar;
     [Range(0, 2f)]
     public float timeSpeed;
-    [Range(0,100f)]
+    [Range(0,30f)]
     public float spikeDamage;
-    [Range(0, 100f)]
+    [Range(0, 30f)]
     public float lavaDamage;
-    [Range(0, 100f)]
+    [Range(0, 30f)]
     public float trapDamage;
 
     // Fields that script must fill
