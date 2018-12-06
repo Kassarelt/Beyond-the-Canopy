@@ -32,9 +32,13 @@ public class LevelSelector : MonoBehaviour {
             manager.firstOpenInfoScreen = false;
             Mars();
         }
-        else if (manager.marsFinished && manager.lastLevelFinished == "Mars") {
+        else if (manager.marsFinished && manager.lastLevelFinished == "Mars")
+        {
             Mars();
             profText.text = "Good job Challenger 42! I'm happy you managed to gather all Chronoton crystals on Mars without troubles.\n\nI must admit I was not expecting you to return that quickly and I don't have any further missions for you...\n\nAnyway, thanks for the crystals! I will contact you as soon as I have a new missions.\nOver";
+        }
+        else {
+            Mars();
         }
     }
 
