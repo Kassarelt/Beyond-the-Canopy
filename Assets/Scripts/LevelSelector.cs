@@ -25,6 +25,9 @@ public class LevelSelector : MonoBehaviour {
 
     public void Start()
     {
+        // Show the cursor in case it was hidden ofr any reason
+        Cursor.visible = true;
+
         // Put Informations about Professor
         manager = GameObject.FindObjectOfType<GameManager>();
         profName.text = "Professor Spacestein";
