@@ -42,8 +42,8 @@ The learning goal is to learn some things about planets of our solar system. Gam
   
 ## Team Members  
    
-Ralph Söthe  
-Osman Sinan  
+Ralph Söthe Garnier  
+Sinan Emiroglu  
 Guillaume Celli  
-Asuka Kawagushi  
+Asuka Kawaguchi  
 Limbaroyati
