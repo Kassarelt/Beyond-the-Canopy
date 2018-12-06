@@ -32,8 +32,9 @@ The game is a 2d Platformer. You are an astronaut and you must prove that you ar
 Directional Arrow: Movements  
 Space: Jump  
 H: Print help text  
-R: Restart the Level  
-
+R: Restart the Level
+F: Push and pull object  
+Esc: call out Menu 
 
 ## Learning Goal  
   
