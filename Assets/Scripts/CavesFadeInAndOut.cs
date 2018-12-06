@@ -13,6 +13,7 @@ public class CavesFadeInAndOut : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        // Show inside of cave when enter in it
         if (other.gameObject.tag == "Player")
         {
             transitionAnim.SetTrigger("enter");
@@ -21,6 +22,7 @@ public class CavesFadeInAndOut : MonoBehaviour {
 
     private void OnTriggerExit2D(Collider2D other)
     {
+        // Hide inside of cave when exit
         if (other.gameObject.tag == "Player")
         {
             transitionAnim.SetTrigger("enter");

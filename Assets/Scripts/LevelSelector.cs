@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class LevelSelector : MonoBehaviour {
 
+    // Field to fill
     public Image bigPlanetFrame;
     public Text bigPlanetName;
     public Text bigPlanetInfo;
@@ -12,6 +13,7 @@ public class LevelSelector : MonoBehaviour {
     public Text profName;
     public Text profInformation;
 
+    // Button to start kevek
     public Button startButton;
 
     public SceneTransitionMenu sceneManager;
@@ -23,10 +25,12 @@ public class LevelSelector : MonoBehaviour {
 
     public void Start()
     {
+        // Put Informations about Professor
         manager = GameObject.FindObjectOfType<GameManager>();
         profName.text = "Professor Spacestein";
         profInformation.text = "Age: 64\nSize: 1m65\nWeight: Too Much\nHobbies: eat burritos in front of Star Wars";
 
+        // Start by Default on Mars (only this level is available)
         if (manager.firstOpenInfoScreen)
         {
             manager.firstOpenInfoScreen = false;
