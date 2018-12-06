@@ -13,7 +13,7 @@ public class PreloadScript : MonoBehaviour {
             SceneManager.LoadScene(LoadingSceneIntegration.otherScene);
         }
         else {
-            SceneManager.LoadScene("Menu");
+            SceneManager.LoadScene("Group");
         }
     }
 }

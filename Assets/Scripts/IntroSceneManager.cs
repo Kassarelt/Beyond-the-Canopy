@@ -16,7 +16,7 @@ public class IntroSceneManager : MonoBehaviour
     IEnumerator LoadScene()
     {
         Time.timeScale = 1;
-        yield return new WaitForSeconds(3.45f);
+        yield return new WaitForSeconds(3.7f);
         transitionAnim.SetTrigger("end");
         yield return new WaitForSeconds(2.3f);
         SceneManager.LoadScene("Menu");
