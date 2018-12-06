@@ -18,8 +18,6 @@ public class PlayerTimer : MonoBehaviour {
     public float trapDamage;
 
     // Fields that script must fill
-    public Text timerValueIndicator;
-
     public SceneTransitionMenu sceneManager;
 
     // Check if player is Grounded (to fall)
@@ -62,7 +60,6 @@ public class PlayerTimer : MonoBehaviour {
         // Get some Components for player
         playerMoveScript = gameObject.GetComponent<Player>();
         groundCheck = GameObject.Find("groundCheck").transform;
-        timerValueIndicator.text = timeBar.value.ToString();
     }
 	
 	// Update is called once per frame
@@ -88,7 +85,6 @@ public class PlayerTimer : MonoBehaviour {
         if (timeBar.value >= 0)
         {
             timeBar.value -= (timeSpeed / 10) * Time.deltaTime;
-            timerValueIndicator.text = timeBar.value.ToString();
 
             // Death Condition
             if (timeBar.value == 0)
@@ -107,13 +103,11 @@ public class PlayerTimer : MonoBehaviour {
         {
             timeBar.value -= spikeDamage;
             StartCoroutine(hitAnimation());
-            timerValueIndicator.text = timeBar.value.ToString();
         }
         if (collision.gameObject.tag == "Lava")
         {
             timeBar.value -= lavaDamage;
             StartCoroutine(hitAnimation());
-            timerValueIndicator.text = timeBar.value.ToString();
         }
     }
 
@@ -122,7 +116,6 @@ public class PlayerTimer : MonoBehaviour {
         Debug.Log("Dmg");
         timeBar.value -= trapDamage;
         StartCoroutine(hitAnimation());
-        timerValueIndicator.text = timeBar.value.ToString();
     }
 
     IEnumerator death()
