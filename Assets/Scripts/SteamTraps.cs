@@ -10,7 +10,10 @@ public class SteamTraps : MonoBehaviour {
     {
         collisionEvents = new List<ParticleCollisionEvent>();
     }
-
+    private void Update()
+    {
+        
+    }
     private void OnParticleCollision(GameObject other)
     {
         int numCollisionEvents = GetComponent<ParticleSystem>().GetCollisionEvents(other, collisionEvents);
@@ -22,7 +25,7 @@ public class SteamTraps : MonoBehaviour {
         {
             if (rb)
             {
-                Debug.Log("aGAERHAR");
+                Debug.Log(numCollisionEvents);
             }
             i++;
         }

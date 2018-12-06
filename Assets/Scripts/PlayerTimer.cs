@@ -117,13 +117,13 @@ public class PlayerTimer : MonoBehaviour {
         }
     }
 
-    private void OnParticleCollision(GameObject steamTraps)
-    {
-            Debug.Log("Dmg");
-            timeBar.value -= trapDamage;
-            StartCoroutine(hitAnimation());
-            timerValueIndicator.text = timeBar.value.ToString();
-    }
+    //private void OnParticleCollision(GameObject steamTraps)
+    //{
+    //        Debug.Log("Dmg");
+    //        timeBar.value -= trapDamage;
+    //        StartCoroutine(hitAnimation());
+    //        timerValueIndicator.text = timeBar.value.ToString();
+    //}
 
     IEnumerator death()
     {
