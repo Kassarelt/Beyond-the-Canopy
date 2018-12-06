@@ -3,31 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SteamTraps : MonoBehaviour {
-
-    public List<ParticleCollisionEvent> collisionEvents;
+    
+    private PlayerTimer pt;
 
     private void Start()
     {
-        collisionEvents = new List<ParticleCollisionEvent>();
+        pt= FindObjectOfType<PlayerTimer>();
     }
-    private void Update()
-    {
+    //private void OnParticleCollision(GameObject other)
+    //{
+    //    pt.timeBar.value -= 0.000005f;
         
-    }
-    private void OnParticleCollision(GameObject other)
-    {
-        int numCollisionEvents = GetComponent<ParticleSystem>().GetCollisionEvents(other, collisionEvents);
-
-        Rigidbody rb = other.GetComponent<Rigidbody>();
-        int i = 0;
-
-        while (i < numCollisionEvents)
-        {
-            if (rb)
-            {
-                Debug.Log(numCollisionEvents);
-            }
-            i++;
-        }
-    }
+    //}
 }

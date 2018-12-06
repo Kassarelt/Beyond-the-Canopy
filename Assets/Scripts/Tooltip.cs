@@ -83,11 +83,11 @@ public class Tooltip : MonoBehaviour {
 
     IEnumerator TooltipLevelCoroutine()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(5f);
         tooltipText.text = "If anything goes wrong press R and your last actions will be reset.";
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(4f);
         tooltipText.text = "If you need my help again just press H.\nGood luck Challenger 42, over.";
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(4f);
         tooltipAnim.SetTrigger("start");
         yield return new WaitForSeconds(0.5f);
         tooltipImage.SetActive(false);
