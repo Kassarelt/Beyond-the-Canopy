@@ -45,6 +45,10 @@ public class PlayerTimer : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+
+        // timeBar init
+        timeBar.gameObject.SetActive(true);
+
         // Create audioSource if not exist
         if (audioSource == null)
         {
@@ -115,7 +119,6 @@ public class PlayerTimer : MonoBehaviour {
 
     private void OnParticleCollision(GameObject steamTraps)
     {
-        
             Debug.Log("Dmg");
             timeBar.value -= trapDamage;
             StartCoroutine(hitAnimation());
@@ -124,6 +127,7 @@ public class PlayerTimer : MonoBehaviour {
 
     IEnumerator death()
     {
+        timeBar.gameObject.SetActive(false);
         sceneManager.Reload();
         GameObject.Find("Main Camera").GetComponent<AudioSource>().Stop();
         yield return new WaitForSeconds(0.1f);
