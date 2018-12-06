@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerTimer : MonoBehaviour {
 
-    public float timeOfLevel = 10f;
+    // Variable to parameter to choose time
+    public float timeOfLevel;
     public Slider timeBar;
     [Range(0, 2f)]
     public float timeSpeed;
@@ -16,10 +17,12 @@ public class PlayerTimer : MonoBehaviour {
     [Range(0, 100f)]
     public float trapDamage;
 
+    // Fields that script must fill
     public Text timerValueIndicator;
 
     public SceneTransitionMenu sceneManager;
 
+    // Check if player is Grounded (to fall)
     private Player playerMoveScript;
     private bool wasGrounded = true;
     public float fallDamage;
@@ -42,6 +45,7 @@ public class PlayerTimer : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        // Create audioSource if not exist
         if (audioSource == null)
         {
             audioSource = GetComponent<AudioSource>();
@@ -50,6 +54,8 @@ public class PlayerTimer : MonoBehaviour {
         {
             audioSource = gameObject.AddComponent<AudioSource>();
         }
+
+        // Get some Components for player
         playerMoveScript = gameObject.GetComponent<Player>();
         groundCheck = GameObject.Find("groundCheck").transform;
         timerValueIndicator.text = timeBar.value.ToString();
@@ -63,6 +69,7 @@ public class PlayerTimer : MonoBehaviour {
 
     void FallDmg()
     {
+        // Use velocity (which Improve) to know if player must take damage and how much he get
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, WhatIsGround);
         if (!wasGrounded && isGrounded && gameObject.GetComponent<Rigidbody2D>().velocity.y < -velocityFallMax)
         {
@@ -79,6 +86,7 @@ public class PlayerTimer : MonoBehaviour {
             timeBar.value -= (timeSpeed / 10) * Time.deltaTime;
             timerValueIndicator.text = timeBar.value.ToString();
 
+            // Death Condition
             if (timeBar.value == 0)
             {
                 StartCoroutine(death());
@@ -87,6 +95,8 @@ public class PlayerTimer : MonoBehaviour {
         }
        
     }
+
+    // Dmg of Environment
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Spike")
@@ -110,7 +120,6 @@ public class PlayerTimer : MonoBehaviour {
             timeBar.value -= trapDamage;
             StartCoroutine(hitAnimation());
             timerValueIndicator.text = timeBar.value.ToString();
-        
     }
 
     IEnumerator death()

@@ -16,7 +16,7 @@ public class Tooltip : MonoBehaviour {
     private void Start()
     {
         tooltipOpen = false;
-        if (SceneManager.GetActiveScene().name != "Menu" /*&& SceneManager.GetActiveScene().name != "InformationScreen"*/)
+        if (SceneManager.GetActiveScene().name != "Menu")
         {
             OpenLevelTooltip();
         }
@@ -24,7 +24,7 @@ public class Tooltip : MonoBehaviour {
 
     private void Update()
     {
-        if (SceneManager.GetActiveScene().name != "Menu" /*&& SceneManager.GetActiveScene().name != "InformationScreen"*/)
+        if (SceneManager.GetActiveScene().name != "Menu")
         {
             if (Input.GetKeyDown(KeyCode.H)){
                 OpenLevelTooltip();

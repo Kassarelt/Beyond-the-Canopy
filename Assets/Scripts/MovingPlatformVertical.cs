@@ -26,13 +26,16 @@ public class MovingPlatformVertical : MonoBehaviour
         Bounds bounds = GetComponent<SpriteRenderer>().bounds;
         Vector2 topLeft = new Vector2(bounds.center.x - (bounds.size.x / 2), bounds.center.y + (bounds.size.y / 2) + 0.1f);
 
+        // Create a raycast at top of platform
         RaycastHit2D[] objectsOnPlatform = Physics2D.RaycastAll(topLeft, new Vector2(bounds.size.x, 0));
 
         // Move platform
         transform.position = new Vector3(transform.position.x, transform.position.y + speed * Time.deltaTime, transform.position.z);
 
+        // Move objects on platforms
         foreach (RaycastHit2D hit in objectsOnPlatform)
         {
+            // For moment only player could be on platform so we move only the player
             if (hit.collider.gameObject.tag == "Player" && hit.distance <= bounds.size.x)
             {
                 Transform otherObjectPosition = hit.collider.gameObject.transform;

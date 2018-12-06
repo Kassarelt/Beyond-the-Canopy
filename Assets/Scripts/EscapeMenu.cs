@@ -22,6 +22,7 @@ public class EscapeMenu : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        // Make pause when press Escape
         if (Input.GetKeyDown(KeyCode.Escape)) {
             isPaused = !isPaused;
             escapeMenu.SetActive(isPaused);
@@ -35,6 +36,7 @@ public class EscapeMenu : MonoBehaviour {
                 Cursor.visible = false;
             }
         }
+        // Restart the level when press R
         if (Input.GetKeyDown(KeyCode.R))
         {
             FreezeWinLoose();

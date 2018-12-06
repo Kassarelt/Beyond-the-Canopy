@@ -21,7 +21,7 @@ public class CameraSmoothFollow : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    // LateUpdate is called right after Update
+    // Make Camera follow the player with x/y limits smoothly
     void LateUpdate()
     {
         float x = Mathf.Clamp(player.transform.position.x, xMin, xMax);

@@ -9,8 +9,6 @@ public class Player : MonoBehaviour
     // Varibale for movements (Move + Jump)
     public float MaxSpeed = 5f;
     public float JumpForce = 200f;
-    //private float DoubleJumpForce = 200f;
-    //public bool doubleJump = false;
     public float groundCheckRadius = 0.1f;
 
     private Rigidbody2D body;
@@ -28,9 +26,8 @@ public class Player : MonoBehaviour
     public GameObject jumpEffect;
     private Vector2 effectPos;
 
-    // Variable of Animators
+    // Variable of Animator
     private Animator playerAnim;
-    //private Animator dastAnim;
 
     // Variable to check if object has been collected and to play on time
     public GameObject itemUI;
@@ -41,7 +38,6 @@ public class Player : MonoBehaviour
     private float distanceToBottomOfPlayer = 7f;
     private GameObject lockedObject = null;
     public static bool isFpressed = false;
-
     public float distanceToSides = 7f;
 
     // Variables for sound effects
@@ -56,6 +52,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        // Create new audioSource if don't exist
         if (audioSource == null)
         {
             audioSource = GetComponent<AudioSource>();
@@ -64,23 +61,18 @@ public class Player : MonoBehaviour
         {
             audioSource = gameObject.AddComponent<AudioSource>();
         }
+
+        // Get some Components for player
         body = GetComponent<Rigidbody2D>();
         playerAnim = GetComponent<Animator>();
         groundCheck = GameObject.Find("groundCheck").transform;
-
         manager = GameObject.FindObjectOfType<GameManager>();
-
-       // dastAnim = GameObject.Find("dast").GetComponent<Animator>();
-
-       // itemUI.GetComponent<Text>().text = countItems + "/" + maxItems;
-        
     }
 
     void Update()
     {
+        // Check if player is grounded
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, WhatIsGround);
-        //doubleJump = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, WhatIsGround);
-
 
         //walking effect management
         effectPos = new Vector2(transform.position.x, transform.position.y - 3.9f);
@@ -102,10 +94,7 @@ public class Player : MonoBehaviour
         {
             speed /= 2;
         }
-        //if (!isCollected)
-        //{
-            body.velocity = new Vector2(speed, body.velocity.y);
-        //}
+        body.velocity = new Vector2(speed, body.velocity.y);
 
 
         // ANIMATION
@@ -121,9 +110,10 @@ public class Player : MonoBehaviour
         }
 
         // Move OBJECT
-        if (Input.GetKeyDown(KeyCode.F) && isGrounded /*&& !isCollected*/)
+        if (Input.GetKeyDown(KeyCode.F) && isGrounded)
         {
             RaycastHit2D ray;
+            // Put rayCast in function of player direcion
             if (facingRight)
             {
                 ray = Physics2D.Raycast(transform.position, Vector2.right);
@@ -134,61 +124,36 @@ public class Player : MonoBehaviour
             }
             if (ray.collider != null && ray.collider.tag == "movableObject" && ray.distance < distanceToBottomOfPlayer)
             {
+                // Put variable for animation
                 playerAnim.SetBool("isPulling", true);
+
                 lockedObject = ray.collider.gameObject;
                 isFpressed = true;
-                //lockedObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
             }
         }
-        if (Input.GetKeyUp(KeyCode.F) /*&& lockedObject != null && isGrounded && !isCollected*/)
+        if (Input.GetKeyUp(KeyCode.F))
         {
             if (lockedObject != null && isGrounded)
             {
                 playerAnim.SetBool("isPulling", false);
                 isFpressed = false;
                 lockedObject = null;
-                //lockedObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
             }
         }
-        if (/*!isCollected &&*/ lockedObject != null && (lockedObject.GetComponent<Rigidbody2D>().bodyType != RigidbodyType2D.Static))
+        if (lockedObject != null && (lockedObject.GetComponent<Rigidbody2D>().bodyType != RigidbodyType2D.Static))
         {
             lockedObject.GetComponent<Rigidbody2D>().velocity = new Vector2(speed, lockedObject.GetComponent<Rigidbody2D>().velocity.y);
         }
 
         // JUMP
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded && /*!isCollected &&*/ lockedObject == null)
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded && lockedObject == null)
         {
             audioSource.PlayOneShot(jumpingSound);
             body.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
-            // doubleJump = true;
 
             //jumping effect
             Instantiate(jumpEffect, effectPos, Quaternion.identity);
         }
-        //else if (Input.GetButtonDown("Jump") && doubleJump)
-        //{
-        //    body.AddForce(new Vector2(0, DoubleJumpForce));
-        //    anim.SetTrigger("Jump");
-        //    doubleJump = false;
-        //}
-
-        // Code end of level (play small animation
-        /*if (isCollected && (transform.position != spaceShip.position))
-        {
-            gameObject.GetComponent<BoxCollider2D>().enabled = false;
-            gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
-            GetComponent<SpriteRenderer>().sortingLayerName = "BeforePlayer";
-            GetComponent<SpriteRenderer>().sortingOrder = 10;
-            currentLerpTime += Time.deltaTime;
-            if (currentLerpTime>=lerpTime)
-            {
-                currentLerpTime = lerpTime;
-                SceneController myScene = new SceneController();
-                myScene.SceneShifter(2);
-            }
-            float Perc = currentLerpTime / lerpTime;
-            transform.position = Vector3.Lerp(touchedPosition,spaceShip.position,Perc);
-        }*/
 
         // Flip the player when require
         if (((speed > 0 && !facingRight) || (speed < 0 && facingRight)) && !Input.GetKey(KeyCode.F))
@@ -200,10 +165,14 @@ public class Player : MonoBehaviour
         {
             RaycastHit2D ray;
 
+
+            //This part check if player don't touch a wall and make it that the player doesn't stay block 
+
             // Get top of platform
             Bounds bounds = GetComponent<SpriteRenderer>().bounds;
-
             Vector2 startRay;
+
+            // Put raycast in right way
             if (facingRight)
             {
                 startRay = new Vector2(bounds.center.x + (bounds.size.x / 2) + 0.1f, bounds.center.y + (bounds.size.y / 2)+0.1f);
@@ -227,6 +196,7 @@ public class Player : MonoBehaviour
         transform.localScale = new Vector3(-1 * transform.localScale.x, transform.localScale.y, 1);
     }
 
+    // Coroutine of Winning
     IEnumerator victory()
     {
         setLevelBool();
@@ -235,8 +205,6 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         audioSource.PlayOneShot(victorySound);
     }
-
-    Vector3 vectorPlatform;
 
     // Collecting the materials
     private void OnTriggerEnter2D(Collider2D other)
@@ -248,6 +216,7 @@ public class Player : MonoBehaviour
             countItems += 1;
             itemUI.GetComponent<Text>().text = countItems + "/" + maxItems;
 
+            // Winning Condition
             if (countItems == maxItems)
             {
                 StartCoroutine(victory());
@@ -258,6 +227,7 @@ public class Player : MonoBehaviour
     // Validation of levels
     private void setLevelBool() {
         string levelName = SceneManager.GetActiveScene().name;
+        // Put that player has finished the Mars Level
         if (levelName == "Mars"){
             manager.marsFinished = true;
             manager.lastLevelFinished = "Mars";
